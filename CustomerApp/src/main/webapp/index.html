@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+
+    <!-- ASSETS -->
+    <link rel="stylesheet" type="text/css"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/validation.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.5/angular.min.js"></script>
+    <!-- / -->
+
+    <!-- MODULES -->
+    <script src="app.core.js"></script>
+    <script src="app.js"></script>
+    <!-- / -->
+    <!-- CONTROLLERS -->
+    <script src="sections/home/home.ctrl.js"></script>
+    <script src="components/tabs/tabs.ctrl.js"></script>
+    <script src="components/tabs/review.ctrl.js"></script>
+    <!-- / -->
+    <!-- SERVICES -->
+    <!-- / -->
+    <!-- DIRECTIVES -->
+    <!-- / -->
+
+</head>
+
+<body ng-controller="StoreController as store">
+
+<div class="container">
+    <h1>{{store.title}}</h1>
+    <div class="input-group">
+        <span class="input-group-addon">
+            <span class="glyphicon glyphicon-search"></span>
+        </span>
+        <input type="text" class="form-control" ng-model="store.searchInput">
+    </div>
+    <h3>A list of TV-Series</h3>
+    <ul class="list-group">
+        <li class="list-group-item"
+            ng-repeat="product in store.products | filter:store.searchInput | orderBy:store.order.key:store.order.reverse"></span>
+            <h3>{{product.name}}</h3>
+            <span class="badge">{{product.year}}</span>
+
+            <div ng-show="product.images.length">
+                <ul class="img-thumbnails clearfix">
+                    <li class="small-image pull-left thumbnail" ng-repeat="image in product.images">
+                        <img ng-src="{{image}}" height="50" width="50"/>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Product Tabs  -->
+            <section ng-controller="TabController as tab">
+                <ul class="nav nav-pills">
+                    <li ng-class="{ active:tab.isSet(1) }">
+                        <a href ng-click="tab.setTab(1)">Description</a>
+                    </li>
+                    <li ng-class="{ active:tab.isSet(2) }">
+                        <a href ng-click="tab.setTab(2)">Reviews</a>
+                    </li>
+                </ul>
+
+                <!--  Description Tab's Content  -->
+                <div ng-show="tab.isSet(1)" ng-include="'components/tabs/product-description.html'">
+                </div>
+
+                <div ng-show="tab.isSet(2)" ng-include="'components/tabs/product-reviews.html'">
+                </div>
+
+            </section>
+        </li>
+    </ul>
+
+</div>
+
+</body>
+</html>

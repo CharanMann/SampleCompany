@@ -1,0 +1,95 @@
+[
+  {
+    "name": "House of Cards",
+    "description": "A Congressman works with his equally conniving wife to exact revenge on the people who betrayed him.",
+    "year": 2013,
+    "images": [
+      "assets/images/hoc.jpg"
+    ],
+    "reviews": [
+      {
+        "stars": 5,
+        "body": "I love this show!",
+        "author": "joe@sample.com"
+      },
+      {
+        "stars": 4,
+        "body": "Can't wait for next season!",
+        "author": "joe@sample.com"
+      },
+      {
+        "stars": 4,
+        "body": "Last season ending could haven been better",
+        "author": "david@sample.com"
+      }
+    ]
+  },
+  {
+    "name": "Game of Thrones",
+    "description": "While a civil war brews between several noble families in Westeros, the children of the former rulers of the land attempt to rise up to power. Meanwhile a forgotten race, bent on destruction, return after thousands of years in the North.",
+    "year": 2011,
+    "images": [
+      "assets/images/got.jpg"
+    ],
+    "reviews": [
+      {
+        "stars": 5,
+        "body": "I love this show!",
+        "author": "joe@sample.com"
+      },
+      {
+        "stars": 4,
+        "body": "Can't wait for next season!",
+        "author": "joe@sample.com"
+      },
+      {
+        "stars": 4,
+        "body": "Last season ending could haven been better",
+        "author": "david@sample.com"
+      }
+    ]
+  },
+  {
+    "name": "Big Bang Theory",
+    "description": "A woman who moves into an apartment across the hall from two brilliant but socially awkward physicists shows them how little they know about life outside of the laboratory.",
+    "year": 2007,
+    "images": [
+      "assets/images/bigBangTheory.jpg"
+    ],
+    "reviews": [
+      {
+        "stars": 5,
+        "body": "I love this show!",
+        "author": "joe@sample.com"
+      },
+      {
+        "stars": 4,
+        "body": "Can't wait for next season!",
+        "author": "joe@sample.com"
+      },
+      {
+        "stars": 4,
+        "body": "Last season ending could haven been better",
+        "author": "david@sample.com"
+      }
+    ]
+  },
+  {
+    "name": "Silicon Valley",
+    "description": "In the high-tech gold rush of modern Silicon Valley, the people most qualified to succeed are the least capable of handling success.",
+    "year": 2014,
+    "images": [
+      "assets/images/siliconValley.jpg"
+    ],
+    "reviews": []
+  },
+  {
+    "name": "Breaking Bad",
+    "description": "A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine, with his former student, in order to secure his family's financial future.",
+    "year": 2008,
+    "images": [
+      "assets/images/breakingBad.jpg"
+    ],
+    "reviews": []
+  }
+]
