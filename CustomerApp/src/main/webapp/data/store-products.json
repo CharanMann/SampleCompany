@@ -16,11 +16,6 @@
         "stars": 4,
         "body": "Can't wait for next season!",
         "author": "joe@sample.com"
-      },
-      {
-        "stars": 4,
-        "body": "Last season ending could haven been better",
-        "author": "david@sample.com"
       }
     ]
   },
@@ -34,8 +29,8 @@
     "reviews": [
       {
         "stars": 5,
-        "body": "I love this show!",
-        "author": "joe@sample.com"
+        "body": "I want to come back!",
+        "author": "john.snow@sample.com"
       },
       {
         "stars": 4,
@@ -43,7 +38,7 @@
         "author": "joe@sample.com"
       },
       {
-        "stars": 4,
+        "stars": 5,
         "body": "Last season ending could haven been better",
         "author": "david@sample.com"
       }
@@ -63,14 +58,9 @@
         "author": "joe@sample.com"
       },
       {
-        "stars": 4,
-        "body": "Can't wait for next season!",
-        "author": "joe@sample.com"
-      },
-      {
-        "stars": 4,
-        "body": "Last season ending could haven been better",
-        "author": "david@sample.com"
+        "stars": 5,
+        "body": "BAZINGA!!!",
+        "author": "sheldon.cooper@sample.com"
       }
     ]
   },
