@@ -17,8 +17,8 @@ var appRouter = function(server) {
         res.json({ message: 'Welcome to our Common Services APIs !!! ' });
     });
 
-    // Get a specific user; http://localhost:8002/users/emp1
-    server.get('/users/:name', function (req, res) {
+    // Get a specific id; http://localhost:8002/users/emp1
+    server.get('/users/:id', function (req, res) {
         console.log('Reading user ' + req.params.name);
 
         for (var i = 0; i < users.length; ++i) {

@@ -1,24 +1,28 @@
 [
     {
-      "name": "emp1",
+      "id": "emp1",
+      "name": "John Doe",
       "email": "emp1@sample.com",
       "location": "US",
       "title": "Consultant"
     },
     {
-      "name": "emp2",
+      "id": "emp2",
+      "name": "John Smith",
       "email": "emp2@sample.com",
       "location": "US",
       "title": "Software developer"
     },
     {
-      "name": "cus1",
+      "id": "cus1",
+      "name": "George Costanza",
       "email": "cus1@sample.com",
       "location": "UK",
       "industry": "Finance"
     },
     {
-      "name": "cus2",
+      "id": "cus1",
+      "name": "Cosmo Kramer",
       "email": "cus2@sample.com",
       "location": "US",
       "industry": "Telecom"
