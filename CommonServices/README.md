@@ -2,7 +2,6 @@
 
 *Common Services providing REST APIs*
 
-java -jar dependency/jetty-runner.jar --port 8001 --path /customerApp CustomerApp.war
 
 Disclaimer of Liability :
 =========================
