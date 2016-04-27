@@ -1,0 +1,22 @@
+[
+  {
+    "name": "emp1",
+    "email": "emp1@sample.com",
+    "location": "US"
+  },
+  {
+    "name": "emp2",
+    "email": "emp2@sample.com",
+    "location": "US"
+  },
+  {
+    "name": "cus1",
+    "email": "cus1@sample.com",
+    "location": "UK"
+  },
+  {
+    "name": "cus2",
+    "email": "cus2@sample.com",
+    "location": "US"
+  }
+]

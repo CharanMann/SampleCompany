@@ -2,6 +2,9 @@
 
 *Common Services providing REST APIs*
 
+npm install
+node server.js
+
 
 Disclaimer of Liability :
 =========================
