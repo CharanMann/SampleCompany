@@ -1,3 +1,3 @@
-angular.module('app', ['app.core']);
+angular.module('app', ['ngRoute','app.routes','app.core']);
 
 
