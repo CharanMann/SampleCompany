@@ -19,21 +19,22 @@ var appRouter = function(server) {
 
     // Get a specific id; http://localhost:8002/users/emp1
     server.get('/users/:id', function (req, res) {
-        console.log('Reading user ' + req.params.name);
+        console.log('Reading user ' + req.params.id);
 
         for (var i = 0; i < users.length; ++i) {
-            if (users[i].name == req.params.name)
+            if (users[i].id == req.params.id)
             {
                 var user = JSON.stringify(users[i], null, '\t');
-                console.log("Found user: " + user);
+                console.log(new Date().toString() + " Found user: " + user);
                 res.end(user);
             }
         }
+        res.end(null);
     });
 
     // Get all; http://localhost:8002/users/all
     server.get('/users', function (req, res) {
-        console.log('Reading all users');
+        console.log(new Date().toString() + ' Reading all users');
 
         res.end(JSON.stringify(users, null, '\t'));
     });

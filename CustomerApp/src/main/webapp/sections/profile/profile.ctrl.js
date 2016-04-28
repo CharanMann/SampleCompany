@@ -1,11 +1,11 @@
 angular
     .module('app.core')
-    .controller("ProfileController", ['$http',function($http){
-        var profile = this;
+    .controller("ProfileController", ['TxService',function(TxService) {
+         var profile = this;
 
-        profile.user = null;
+         profile.tUsers = [];
 
-        $http.get('http://localhost:8002/users/emp1').success(function(data){
-            profile.user = data;
-        });
+         profile.dUsers = [{"TOm":"Jane"}];
+
+         tUsers = TxService.query();
 }]);
