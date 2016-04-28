@@ -24,8 +24,15 @@ var appRouter = function(server) {
         for (var i = 0; i < users.length; ++i) {
             if (users[i].id == req.params.id)
             {
-                var user = JSON.stringify(users[i], null, '\t');
+                var user = JSON.stringify(users[i]);
                 console.log(new Date().toString() + " Found user: " + user);
+
+                // Set headers
+                res.setHeader('Access-Control-Allow-Origin', "*");
+                res.setHeader('Access-Control-Allow-Credentials', true);
+                res.setHeader('Content-Type', 'application/json; charset=utf-8');
+                res.setHeader('Server', 'sample.com');
+
                 res.end(user);
             }
         }
@@ -36,7 +43,13 @@ var appRouter = function(server) {
     server.get('/users', function (req, res) {
         console.log(new Date().toString() + ' Reading all users');
 
-        res.end(JSON.stringify(users, null, '\t'));
+        // Set headers
+        res.setHeader('Access-Control-Allow-Origin', "*");
+        res.setHeader('Access-Control-Allow-Credentials', true);
+        res.setHeader('Content-Type', 'application/json; charset=utf-8');
+        res.setHeader('Server', 'sample.com');
+
+        res.end(JSON.stringify(users));
     });
 }
 
