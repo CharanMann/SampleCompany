@@ -1,4 +1,5 @@
 /CommonServices/node_modules/
 /CustomerApp/target
+/CustomerApp/src/bower_components
 /.idea
 

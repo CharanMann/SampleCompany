@@ -1,0 +1,22 @@
+{
+  "version": "0.0.0",
+  "private": true,
+  "name": "customer-app",
+  "description": "",
+  "repository": "https://github.com/CharanMann/SampleCompany",
+  "license": "CDDLv1.0",
+  "devDependencies": {
+    "angular":"latest",
+    "jquery":"latest",
+    "bootstrap":"latest",
+    "angular-route": "latest",
+    "angular-resource":"latest",
+    "http-server": "^0.6.1"
+  },
+  "scripts": {
+    "prestart": "npm install",
+    "start": "http-server -a 0.0.0.0 -p 8000",
+
+    "pretest": "npm install"
+  }
+}

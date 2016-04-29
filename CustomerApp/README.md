@@ -1,8 +1,16 @@
 # CustomerApp
 
-*Customer application*
+This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
+version 0.15.1.
 
-java -jar dependency/jetty-runner.jar --port 8000 --path /customerApp CustomerApp.war
+## Build & development
+
+Run `grunt` for building and `grunt serve` for preview.
+
+https://www.toptal.com/angular-js/your-first-angularjs-app-part-2-scaffolding-building-and-testing
+https://devdactic.com/yeoman-speed-up-your-development/
+
+
 
 Disclaimer of Liability :
 =========================
