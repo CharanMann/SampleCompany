@@ -9,7 +9,7 @@ var server = express();
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({ extended: true }));
 
-var routes = require("./routes/users.js")(server);
+var routes = require("./routes/txDetails.js")(server);
 
 // START THE SERVER
 var port = process.env.PORT || 8002;

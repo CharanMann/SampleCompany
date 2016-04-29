@@ -2,7 +2,7 @@
 
 *Customer application*
 
-java -jar dependency/jetty-runner.jar --port 8001 --path /customerApp CustomerApp.war
+java -jar dependency/jetty-runner.jar --port 8000 --path /customerApp CustomerApp.war
 
 Disclaimer of Liability :
 =========================

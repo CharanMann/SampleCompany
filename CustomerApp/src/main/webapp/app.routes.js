@@ -8,9 +8,9 @@ function config ($routeProvider) {
             templateUrl: 'sections/home/home.html',
             controller: 'StoreController as store'
         })
-        .when('/profile', {
-            templateUrl: 'sections/profile/profile.html',
-            controller: 'ProfileController as profile'
+        .when('/history', {
+            templateUrl: 'sections/tx/tx.html',
+            controller: 'TxController as tx'
         })
         .otherwise({
             redirectTo: '/'

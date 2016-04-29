@@ -1,0 +1,64 @@
+[
+  {
+    "id": "emp1",
+    "history": [
+      {
+        "date": "04-28-2016, 16:30:02 GMT-0400 (EDT)",
+        "activity": "Logged In",
+        "location": "New York, US",
+        "IP address": "192.168.56.1"
+      },
+      {
+        "date": "04-28-2016, 16:30:02 GMT-0400 (EDT)",
+        "activity": "Added a review comment",
+        "location": "New York, US",
+        "IP address": "192.168.56.1"
+      }
+    ]
+  },
+  {
+    "id": "emp2",
+    "history": [
+      {
+        "date": "04-18-2016, 16:30:02 GMT-0400 (EDT)",
+        "activity": "Logged In",
+        "location": "Charlotte, US",
+        "IP address": "10.0.1.6"
+      },
+      {
+        "date": "04-20-2016, 16:30:02 GMT-0400 (EDT)",
+        "activity": "Added a review comment",
+        "location": "Atlanta, US",
+        "IP address": "192.168.100.1"
+      }
+    ]
+  },
+  {
+    "id": "cus1",
+    "history": [
+      {
+        "date": "04-28-2016, 16:30:02 GMT-0400 (EDT)",
+        "activity": "Logged In",
+        "location": "New York, US",
+        "IP address": "192.168.56.1"
+      }
+    ]
+  },
+  {
+    "id": "cus2",
+    "history": [
+      {
+        "date": "04-18-2016, 16:30:02 GMT-0400 (EDT)",
+        "activity": "Logged In",
+        "location": "Charlotte, US",
+        "IP address": "10.0.1.6"
+      },
+      {
+        "date": "04-20-2016, 16:30:02 GMT-0400 (EDT)",
+        "activity": "Added a review comment",
+        "location": "Atlanta, US",
+        "IP address": "192.168.100.1"
+      }
+    ]
+  }
+]
