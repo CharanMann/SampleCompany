@@ -1,9 +1,39 @@
-<!--  User Profile -->
-<!DOCTYPE html>
-<div class="list-group">
-    {{tx.history}}
-    <!--  Product Container  -->
-    <div class="list-group-item" ng-repeat="history in tx.history">
-        <h3>{{history}}</h3>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">TV-Series Review Portal</a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#/">Dashboard</a></li>
+                <li><a href="#/">Profile</a></li>
+                <li><a href="#/logout">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+            <h2 class="sub-header">Transaction History</h2>
+            <ul class="list-group">
+                <li class="list-group-item"
+                    ng-repeat="history in tx.details.history"></span>
+                    <h5>TimeStamp: {{history.date}}</h5>
+                    <h5>Activity: {{history.activity}}</h5>
+                    <h5>Location: {{history.location}}</h5>
+                    <h5>IP Address: {{history.ipAddress}}</h5>
+                </li>
+            </ul>
+        </div>
     </div>
 </div>
+
