@@ -1,1 +1,1 @@
-angular.module('app', ['ngRoute','ngResource','app.routes','app.core','app.services']);
+angular.module('app', ['ngRoute','ngResource','app.routes','app.core','app.services','app.constants']);
