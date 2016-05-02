@@ -5,8 +5,8 @@ var express = require("express");
 
 var server = express();
 
-server.use('/customerApp', express.static('./app'));
-server.use('/customerApp/node_modules', express.static('./node_modules'));
+server.use(config.applicationContext, express.static('./app'));
+server.use(config.applicationContext + '/node_modules', express.static('./node_modules'));
 
 server.listen(config.port);
 

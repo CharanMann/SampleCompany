@@ -1,5 +1,5 @@
-var port = 8000;
-
 module.exports = {
-	port: port
+	port: 8000,
+	applicationContext: '/customerApp',
+	commonServicesTxURL: 'http://localhost:8002/history/'
 };
