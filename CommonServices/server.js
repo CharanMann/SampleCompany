@@ -1,4 +1,6 @@
-// call the packages we need
+process.env.NODE_ENV = process.env.NODE_ENV || 'development';
+
+var config = require('./config/config');
 var express = require("express");
 var bodyParser = require("body-parser");
 
@@ -12,6 +14,5 @@ server.use(bodyParser.urlencoded({ extended: true }));
 var routes = require("./routes/txDetails.js")(server);
 
 // START THE SERVER
-var port = process.env.PORT || 8002;
-server.listen(port);
-console.log('Magic happens on port ' + port);
+server.listen(config.port);
+console.log('Common Services server running at http://localhost:' + config.port);
