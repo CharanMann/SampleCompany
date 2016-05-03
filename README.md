@@ -2,6 +2,21 @@
 
 *A Sample company application*
 
+http://www.hostingadvice.com/how-to/install-nodejs-ubuntu-14-04/#ubuntu-package-manager
+
+Install Node.js an NPM
+	
+sudo apt-get install nodejs
+
+sudo apt-get install npm
+
+sudo ln -s /usr/bin/nodejs /usr/sbin/node
+
+$ node -v
+v0.10.25
+$ npm -v
+1.3.10
+
 Disclaimer of Liability :
 =========================
 The code for this project is only meant for DEMO purposes only and is not PRODUCTION ready. This is a sample implementation only and is not supported by ForgeRock. 

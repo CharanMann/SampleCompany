@@ -1,4 +1,4 @@
 angular.module('app.constants', [])
     .constant('appConstants', {
-        serverURI: 'http://localhost:8010/history/'
+        serverURI: 'http://apis.sc.com:8010/history/'
      });
