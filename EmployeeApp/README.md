@@ -1,6 +1,6 @@
-# Customer App
+# Employee App
 
-*Customer Application for external users*
+*Employee Application for internal users*
 
 npm install
 

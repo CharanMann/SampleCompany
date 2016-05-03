@@ -2,9 +2,6 @@
 
 *A Sample company application*
 
-Setting up dev env: 
-https://www.toptal.com/angular-js/your-first-angularjs-app-part-2-scaffolding-building-and-testing 
-
 Disclaimer of Liability :
 =========================
 The code for this project is only meant for DEMO purposes only and is not PRODUCTION ready. This is a sample implementation only and is not supported by ForgeRock. 
