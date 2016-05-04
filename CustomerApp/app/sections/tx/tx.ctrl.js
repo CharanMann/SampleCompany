@@ -3,5 +3,5 @@ angular
     .controller("TxController", ['TxService',function(TxService) {
          var tx = this;
 
-         tx.details = TxService.get({id: 'emp1'});
+         tx.details = TxService.get({id: 'cus1'});
 }]);

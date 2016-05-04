@@ -10,7 +10,7 @@
       },
       {
         "date": "04-28-2016, 16:30:02 GMT-0400 (EDT)",
-        "activity": "Added a review comment",
+        "activity": "Enrolled in health insurance",
         "location": "New York, US",
         "ipAddress": "192.168.56.1"
       }
@@ -27,7 +27,7 @@
       },
       {
         "date": "04-20-2016, 16:30:02 GMT-0400 (EDT)",
-        "activity": "Added a review comment",
+        "activity": "Enrolled in 401k",
         "location": "Atlanta, US",
         "ipAddress": "192.168.100.1"
       }
@@ -37,10 +37,10 @@
     "id": "cus1",
     "history": [
       {
-        "date": "04-28-2016, 16:30:02 GMT-0400 (EDT)",
+        "date": "05-03-2016, 16:30:02 GMT-0400 (EDT)",
         "activity": "Logged In",
-        "location": "New York, US",
-        "ipAddress": "192.168.56.1"
+        "location": "Seattle, WA",
+        "ipAddress": "10.0.8.15"
       }
     ]
   },
