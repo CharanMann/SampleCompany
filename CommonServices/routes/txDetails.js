@@ -12,12 +12,12 @@ fs.readFile('./data/txDetails.json', 'utf8', function (err, data) {
 
 var appRouter = function(server) {
 
-    // test route to make sure everything is working (accessed at GET http://localhost:8002/history/info)
+    // test route to make sure everything is working (accessed at GET http://localhost:8010/history/info)
     server.get('/history/info', function(req, res) {
-        res.json({ message: 'Welcome to our Common Services APIs !!! ' });
+        res.json({ message: 'Welcome to Tx History REST APIs !!! Endpoints: 1.Get user tx history: /history/{id} 2.Get all users tx history: /txHistory/all' });
     });
 
-    // Get a specific id; http://localhost:8002/history/emp1
+    // Get a specific id; http://localhost:8010/history/emp1
     server.get('/history/:id', function (req, res) {
         console.log('Reading user ' + req.params.id);
 
@@ -39,8 +39,8 @@ var appRouter = function(server) {
         res.end(null);
     });
 
-    // Get all; http://localhost:8002/history/all
-    server.get('/history', function (req, res) {
+    // Get all Tx History; http://localhost:8010/txHistory/all
+    server.get('/txHistory/all', function (req, res) {
         console.log(new Date().toString() + ' Reading all users');
 
         // Set headers
