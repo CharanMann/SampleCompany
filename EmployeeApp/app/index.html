@@ -19,6 +19,7 @@
     <script type="text/javascript"
             src="node_modules/angular-resource/angular-resource.js"></script>
     <script type="text/javascript" src="node_modules/angular-route/angular-route.js"></script>
+    <script type="text/javascript" src="node_modules/angular-cookies/angular-cookies.js"></script>
     <!-- / -->
 
     <!-- MODULES -->
@@ -28,13 +29,18 @@
     <script src="app.constants.js"></script>
     <script src="app.js"></script>
     <!-- / -->
-    <!-- CONTROLLERS -->
-    <script src="sections/home/home.ctrl.js"></script>
-    <script src="sections/tx/tx.ctrl.js"></script>
+
+    <!-- SERVICES -->
+    <script src="services/openAMService.js"></script>
     <script src="services/txService.js"></script>
     <!-- / -->
-    <!-- SERVICES -->
+
+    <!-- CONTROLLERS -->
+    <script src="sections/home/home.ctrl.js"></script>
+    <script src="sections/oauth2/oauth2rc.ctrl.js"></script>
+    <script src="sections/tx/tx.ctrl.js"></script>
     <!-- / -->
+
     <!-- DIRECTIVES -->
     <!-- / -->
 </head>

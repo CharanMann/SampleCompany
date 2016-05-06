@@ -10,4 +10,4 @@ server.use(config.applicationContext + '/node_modules', express.static('./node_m
 
 // START THE SERVER
 server.listen(config.port);
-console.log('Employee App server running at http://' + config.hostname + config.applicationContext + ':' + config.port);
+console.log('Employee App server running at http://' + config.hostname + ':' + config.port + config.applicationContext);
