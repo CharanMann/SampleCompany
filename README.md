@@ -17,6 +17,7 @@ v0.10.25
 $ npm -v
 1.3.10
 
+
 OpenAM configs:
 1. Create 2 realms: employees and customers
 2. Add users:
@@ -27,7 +28,7 @@ OpenIG1:
 
 OpenIG2:
 1. Add configs and routes
-2. Disable CORS filter
+2. Disable CORS filter, Sample below:
 
 Disclaimer of Liability :
 =========================
