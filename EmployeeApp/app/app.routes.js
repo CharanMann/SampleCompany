@@ -12,6 +12,10 @@ function config($routeProvider) {
             templateUrl: 'sections/tx/tx.html',
             controller: 'TxController as tx'
         })
+        .when('/profile', {
+             templateUrl: 'sections/profile/profile.html',
+             controller: 'ProfileController as profile'
+        })
         /*.when('/oauth2', {
             templateUrl: 'sections/oauth2/responseConsumer.html',
             controller: 'OAuth2RC as rc'

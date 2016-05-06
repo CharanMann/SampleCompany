@@ -1,8 +1,8 @@
 angular
     .module('app.core')
-    .controller("TxController", function($scope, $http, $cookies, appConstants, TxService, OpenAMService) {
+    .controller("ProfileController", function($scope, $http, $cookies, appConstants, OpenAMService) {
 
-        // Get OpenAM cookie from browser
+         // Get OpenAM cookie from browser
         $scope.openAMCookie = $cookies.get(appConstants.openAMCookie);
 
         // Perform OpenAM token validation and get uid
@@ -15,9 +15,9 @@ angular
                 return;
             }
 
-            // Get user's tx history
-            TxService.history($scope.validate.uid).success(function(data) {
-                $scope.users = data;
+            // Get user's profile
+            OpenAMService.getUserProfile($scope.validate.uid, $scope.openAMCookie).success(function(data) {
+                $scope.profile = data;
             });
 
         }, function() {

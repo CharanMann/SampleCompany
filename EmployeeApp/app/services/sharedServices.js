@@ -20,12 +20,12 @@ angular
     .factory('OpenAMService', ['$http', 'appConstants', function($http, appConstants) {
 
         var openAMService = {
-            authenticate: function(username, password) {
+            authenticate: function(uid, password) {
                 var req = {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'X-OpenAM-Username': username,
+                        'X-OpenAM-Username': uid,
                         'X-OpenAM-Password': password
                     },
                     data: {},
@@ -44,6 +44,16 @@ angular
                     params: {
                         _action: 'validate'
                     }
+                };
+                return $http(req);
+            },
+            getUserProfile: function(uid, tokenId) {
+                var req = {
+                    'method': 'GET',
+                    headers: {
+                        'iPlanetDirectoryPro': tokenId
+                    },
+                    url: appConstants.openAMURL + "/json/employees/users/" + encodeURIComponent(uid)
                 };
                 return $http(req);
             }
