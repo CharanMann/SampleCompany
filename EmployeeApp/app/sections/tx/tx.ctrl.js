@@ -1,18 +1,30 @@
 angular
     .module('app.core')
-    .controller("TxController", ['TxService', function(TxService) {
+    .controller("TxController", function($scope, $http, TxService, OpenAMService) {
+        var tx = this;
 
-        TxService.history('emp1')
-            .then(function mySuccess(response) {
-                $scope.result = 'succes';
-            }, function myError(response) {
-                $scope.result = 'err';
+        $scope.users = [];
+
+
+        $scope.authResult = null;
+        $scope.validate = null;
+        $scope.uid = null;
+
+        OpenAMService.authenticate('emp1', 'password').success(function(data) {
+            $scope.authResult = data;
+
+            OpenAMService.validateToken($scope.authResult.tokenId).success(function(data) {
+                $scope.validate = data;
+
+                TxService.history($scope.validate.uid).success(function(data) {
+                    $scope.users = data;
+                });
             });
+        });
 
-//        OpenAMService.authenticate('emp1','password')
-//            .then(function mySuccess(response) {
-//                        $scope.result1 = 'succes';
-//                    }, function myError(response) {
-//                        $scope.result1 = 'err';
-//                    });
-}]);
+
+
+
+
+
+    });

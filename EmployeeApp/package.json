@@ -1,16 +1,16 @@
 {
-    "version": "0.0.0",
-    "private": true,
-    "name": "employee-app",
-    "description": "",
-    "repository": "https://github.com/CharanMann/SampleCompany",
-    "license": "CDDLv1.0",
-    "devDependencies": {
-        "angular":"latest",
-        "jquery":"latest",
-        "bootstrap":"latest",
-        "angular-route": "latest",
-        "angular-cookies":"latest",
-        "express": "latest"
-    }
+  "version": "0.0.0",
+  "private": true,
+  "name": "employee-app",
+  "description": "",
+  "repository": "https://github.com/CharanMann/SampleCompany",
+  "license": "CDDLv1.0",
+  "devDependencies": {
+    "angular": "latest",
+    "jquery": "latest",
+    "bootstrap": "latest",
+    "angular-route": "latest",
+    "angular-cookies": "latest",
+    "express": "latest"
+  }
 }

@@ -2,9 +2,9 @@ angular
     .module('app.routes', ['ngRoute'])
     .config(config);
 
-function config ($routeProvider) {
+function config($routeProvider) {
     $routeProvider.
-        when('/', {
+    when('/', {
             templateUrl: 'sections/home/home.html',
             controller: 'NewsController as news'
         })
