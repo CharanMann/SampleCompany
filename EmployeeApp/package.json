@@ -10,7 +10,6 @@
         "jquery":"latest",
         "bootstrap":"latest",
         "angular-route": "latest",
-        "angular-resource":"latest",
         "angular-cookies":"latest",
         "express": "latest"
     }

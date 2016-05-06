@@ -1,1 +1,1 @@
-angular.module('app.services', ['ngResource', 'ngCookies', 'app.constants']);
+angular.module('app.services', ['ngCookies', 'app.constants']);
