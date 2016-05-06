@@ -22,8 +22,12 @@ OpenAM configs:
 2. Add users:
 3. Create OpenID connect agent in employees with creds: employeeApp:password
 
+OpenIG1:
+1. Add configs and routes
+
 OpenIG2:
-1. Disable CORS filter 
+1. Add configs and routes
+2. Disable CORS filter
 
 Disclaimer of Liability :
 =========================
