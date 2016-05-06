@@ -5,7 +5,7 @@
 http://www.hostingadvice.com/how-to/install-nodejs-ubuntu-14-04/#ubuntu-package-manager
 
 Install Node.js an NPM
-	
+
 sudo apt-get install nodejs
 
 sudo apt-get install npm
@@ -17,13 +17,21 @@ v0.10.25
 $ npm -v
 1.3.10
 
+OpenAM configs:
+1. Create 2 realms: employees and customers
+2. Add users:
+3. Create OpenID connect agent in employees with creds: employeeApp:password
+
+OpenIG2:
+1. Disable CORS filter 
+
 Disclaimer of Liability :
 =========================
-The code for this project is only meant for DEMO purposes only and is not PRODUCTION ready. This is a sample implementation only and is not supported by ForgeRock. 
-I make no warranty, representation or undertaking whether expressed or implied, nor does it assume any legal liability, whether direct or indirect, or responsibility for the accuracy, 
-completeness, or usefulness of any information. 
+The code for this project is only meant for DEMO purposes only and is not PRODUCTION ready. This is a sample implementation only and is not supported by ForgeRock.
+I make no warranty, representation or undertaking whether expressed or implied, nor does it assume any legal liability, whether direct or indirect, or responsibility for the accuracy,
+completeness, or usefulness of any information.
 
-Further analysis on the detailed requirements, fine-tuning and validation of the proposed architecture is still required by the selected Systems Integrator and/or Architects in charge of 
+Further analysis on the detailed requirements, fine-tuning and validation of the proposed architecture is still required by the selected Systems Integrator and/or Architects in charge of
 architecting the IAM project.
 
 * * *
@@ -41,4 +49,3 @@ Header, with the fields enclosed by brackets [] replaced by your own identifying
 information: "Portions copyright [year] [name of copyright owner]".
 
 Copyright 2016 Charan Mann
-
