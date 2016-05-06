@@ -18,14 +18,9 @@ angular
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Accept': 'application/json',
                         'Authorization': 'Bearer ' + oauth2AT
                     },
                     url: appConstants.apisURLOpenIG + empId,
-                    transformResponse: function(data, headers) {
-                        data = JSON.parse(data);
-                        return data;
-                    }
                 };
                 return $http(req);
             }

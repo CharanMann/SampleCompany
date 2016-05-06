@@ -5,6 +5,7 @@ angular
         // Get OpenAM cookie from browser
         $scope.openAMCookie = $cookies.get(appConstants.openAMCookie);
 
+        //TODO Using password grant for now, should be changed to OAuth2 implicit
         var params = {
             "grant_type": "password",
             "scope": "uid mail",
@@ -26,10 +27,10 @@ angular
                 }
 
                 // Get user's tx history
-                TxService.history($scope.validate.uid, $scope.oauth2.access_token).success(function(data) {
+                TxService.historyUsingAT($scope.validate.uid, $scope.oauth2.access_token).success(function(data) {
                     $scope.users = data;
                 }, function(data) {
-                    $scope.error = "Error in invoking Tx Service";
+                    $scope.error = "Error in invoking Tx Service !";
                 });
 
             }, function() {

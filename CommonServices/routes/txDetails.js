@@ -2,7 +2,7 @@ var fs = require("fs");
 var users;
 
 // Read the file and send to the callback
-fs.readFile('./data/txDetails.json', 'utf8', function (err, data) {
+fs.readFile('./data/txDetails.json', 'utf8', function(err, data) {
 
     if (err) throw err;
 
@@ -14,24 +14,25 @@ var appRouter = function(server) {
 
     // test route to make sure everything is working (accessed at GET http://localhost:8010/history/info)
     server.get('/history/info', function(req, res) {
-        res.json({ message: 'Welcome to Tx History REST APIs !!! Endpoints: 1.Get user tx history: /history/{id} 2.Get all users tx history: /txHistory/all' });
+        res.json({
+            message: 'Welcome to Tx History REST APIs !!! Endpoints: 1.Get user tx history: /history/{id} 2.Get all users tx history: /txHistory/all'
+        });
     });
 
     // Get a specific id; http://localhost:8010/history/emp1
-    server.get('/history/:id', function (req, res) {
+    server.get('/history/:id', function(req, res) {
         console.log('Reading user ' + req.params.id);
 
         for (var i = 0; i < users.length; ++i) {
-            if (users[i].id == req.params.id)
-            {
+            if (users[i].id == req.params.id) {
                 var user = JSON.stringify(users[i]);
                 console.log(new Date().toString() + " Found user: " + user);
 
-                // Set headers
-                res.setHeader('Access-Control-Allow-Origin', "*");
-                res.setHeader('Access-Control-Allow-Credentials', true);
-                res.setHeader('Content-Type', 'application/json; charset=utf-8');
-                res.setHeader('Server', 'sample.com');
+                // Disabling CORS filters as these are now set in OpenIG2
+                //                res.setHeader('Access-Control-Allow-Origin', "*");
+                //                res.setHeader('Access-Control-Allow-Credentials', true);
+                //                res.setHeader('Content-Type', 'application/json; charset=utf-8');
+                //                res.setHeader('Server', 'sample.com');
 
                 res.end(user);
             }
@@ -40,14 +41,14 @@ var appRouter = function(server) {
     });
 
     // Get all Tx History; http://localhost:8010/txHistory/all
-    server.get('/txHistory/all', function (req, res) {
+    server.get('/txHistory/all', function(req, res) {
         console.log(new Date().toString() + ' Reading all users');
 
-        // Set headers
-        res.setHeader('Access-Control-Allow-Origin', "*");
-        res.setHeader('Access-Control-Allow-Credentials', true);
-        res.setHeader('Content-Type', 'application/json; charset=utf-8');
-        res.setHeader('Server', 'sample.com');
+        // Disabling CORS filters as these are now set in OpenIG2
+        //        res.setHeader('Access-Control-Allow-Origin', "*");
+        //        res.setHeader('Access-Control-Allow-Credentials', true);
+        //        res.setHeader('Content-Type', 'application/json; charset=utf-8');
+        //        res.setHeader('Server', 'sample.com');
 
         res.end(JSON.stringify(users));
     });
