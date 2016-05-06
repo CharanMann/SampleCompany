@@ -2,17 +2,19 @@
     <div class="row">
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h2 class="sub-header">User Profile</h2>
-            <h5 ng-show="error">{{error}}</h5>
-            <ul class="list-group">
+            <div ng-show="error" class="alert alert-danger">
+                <strong>Error!</strong> {{error}}
+            </div>
+            <ul ng-hide="error" class="list-group">
                 <li class="list-group-item">
                     </span>
-                    <h5>UserID: {{profile.uid[0]}}</h5>
-                    <h5>FirstName: {{profile.givenName[0]}}</h5>
-                    <h5>LastName: {{profile.sn[0]}}</h5>
-                    <h5>Status: {{profile.inetUserStatus[0]}}</h5>
-                    <h5>Email: {{profile.mail[0]}}</h5>
-                    <h5>Last change date: {{profile.modifyTimestamp[0]}}</h5>
-                    <h5>Roles: {{profile.roles[0]}}</h5>
+                    <h4>UserID: {{profile.uid[0]}}</h4>
+                    <h4>FirstName: {{profile.givenName[0]}}</h4>
+                    <h4>LastName: {{profile.sn[0]}}</h4>
+                    <h4>Status: {{profile.inetUserStatus[0]}}</h4>
+                    <h4>Email: {{profile.mail[0]}}</h4>
+                    <h4>Last change date: {{profile.modifyTimestamp[0]}}</h4>
+                    <h4>Roles: {{profile.roles[0]}}</h4>
                 </li>
                 <h6><i>For any profile updates, please contact HR</i></h6>
             </ul>

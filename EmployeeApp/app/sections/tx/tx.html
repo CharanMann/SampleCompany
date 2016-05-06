@@ -2,7 +2,9 @@
     <div class="row">
         <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
             <h2 class="sub-header">Transaction History</h2>
-            <h5 ng-show="error">{{error}}</h5>
+            <div ng-show="error" class="alert alert-danger">
+                <strong>Error!</strong> {{error}}
+            </div>
             <ul class="list-group">
                 <li class="list-group-item"
                     ng-repeat="history in users.history"></span>
@@ -12,6 +14,9 @@
                     <h5>IP Address: {{history.ipAddress}}</h5>
                 </li>
             </ul>
+            <div class="alert alert-info">
+                <strong>Info!</strong> This REST call uses OAuth2 Access token {{oauth2.access_token}}
+            </div>
         </div>
     </div>
 </div>
