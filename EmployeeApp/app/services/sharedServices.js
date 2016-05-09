@@ -79,8 +79,14 @@ angular
                     data: $httpParamSerializer(params)
                 };
                 return $http(req);
-            }
+            },
+            startImplicitFlow: function(params) {
+                var authURL = appConstants.openAMURL + "/oauth2/employees/authorize";
 
+                // Redirect to Authorization page.
+                var replacementUri = authURL + "?" + $httpParamSerializer(params);
+                window.location.replace(replacementUri);
+            }
         };
 
         return openAMService;

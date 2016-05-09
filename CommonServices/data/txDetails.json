@@ -13,6 +13,12 @@
         "activity": "Enrolled in health insurance",
         "location": "New York, US",
         "ipAddress": "192.168.56.1"
+      },
+      {
+        "date": "04-20-2016, 16:30:02 GMT-0400 (EDT)",
+        "activity": "Enrolled in 401k",
+        "location": "Atlanta, US",
+        "ipAddress": "192.168.100.1"
       }
     ]
   },
@@ -28,6 +34,12 @@
       {
         "date": "04-20-2016, 16:30:02 GMT-0400 (EDT)",
         "activity": "Enrolled in 401k",
+        "location": "Atlanta, US",
+        "ipAddress": "192.168.100.1"
+      },
+      {
+        "date": "04-22-2016, 22:33:13 GMT-0400 (EDT)",
+        "activity": "Completed Self-Assessment for 2016",
         "location": "Atlanta, US",
         "ipAddress": "192.168.100.1"
       }

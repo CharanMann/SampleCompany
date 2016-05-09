@@ -6,14 +6,23 @@ angular
         $scope.openAMCookie = $cookies.get(appConstants.openAMCookie);
 
         //TODO Using password grant for now, should be changed to OAuth2 implicit
-        var params = {
+        var roParams = {
             "grant_type": "password",
             "scope": "uid mail",
             "username": 'emp1',
             "password": 'password'
         };
 
-        OpenAMService.oauth2PasswordCredFlow(params).success(function(data) {
+        var implicitParams = {
+            "response_type": "token",
+            "scope": "uid mail",
+            "client_id": "employeeApp",
+            "redirect_uri": 'http://employees-ig.sc.com:9000/employeeApp/oauth2_callback.html'
+        };
+
+        OpenAMService.startImplicitFlow(implicitParams);
+
+        OpenAMService.oauth2PasswordCredFlow(roParams).success(function(data) {
             $scope.oauth2 = data;
 
             // Perform OpenAM token validation and get uid
