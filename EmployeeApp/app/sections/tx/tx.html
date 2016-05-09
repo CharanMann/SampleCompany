@@ -6,18 +6,17 @@
                 <strong>Error!</strong> {{error}}
             </div>
             <ul class="list-group">
-                <li class="list-group-item"
-                    ng-repeat="history in users.history"></span>
+                <li class="list-group-item" ng-repeat="history in users.history">
+                    </span>
                     <h5>Timestamp: {{history.date}}</h5>
                     <h5>Activity: {{history.activity}}</h5>
                     <h5>Location: {{history.location}}</h5>
                     <h5>IP Address: {{history.ipAddress}}</h5>
                 </li>
             </ul>
-            <div class="alert alert-info">
-                <strong>Info!</strong> This REST call uses OAuth2 Access token: {{oauth2.access_token}}
+            <div ng-show="access_token" class="alert alert-info">
+                <strong>Info!</strong> This REST call uses OAuth2 Access token: {{access_token}}
             </div>
         </div>
     </div>
 </div>
-

@@ -1,1 +1,1 @@
-angular.module('app.core', ['ngCookies', 'app.constants']);
+angular.module('app.core', ['ngRoute', 'ngCookies', 'app.constants']);
