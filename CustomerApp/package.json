@@ -6,11 +6,11 @@
     "repository": "https://github.com/CharanMann/SampleCompany",
     "license": "CDDLv1.0",
     "devDependencies": {
-        "angular":"latest",
-        "jquery":"latest",
-        "bootstrap":"latest",
+        "angular": "latest",
+        "jquery": "latest",
+        "bootstrap": "latest",
         "angular-route": "latest",
-        "angular-resource":"latest",
+        "angular-cookies": "latest",
         "express": "latest"
     }
 }

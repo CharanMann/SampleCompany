@@ -9,13 +9,11 @@
     "reviews": [
       {
         "stars": 5,
-        "body": "I love this show!",
-        "author": "joe@sample.com"
+        "body": "I love this show!"
       },
       {
         "stars": 4,
-        "body": "Can't wait for next season!",
-        "author": "joe@sample.com"
+        "body": "Can't wait for next season!"
       }
     ]
   },
@@ -29,18 +27,15 @@
     "reviews": [
       {
         "stars": 5,
-        "body": "I want to come back!",
-        "author": "john.snow@sample.com"
+        "body": "Loving Season 6!"
       },
       {
         "stars": 4,
-        "body": "Can't wait for next season!",
-        "author": "joe@sample.com"
+        "body": "Can't wait for next season!"
       },
       {
         "stars": 5,
-        "body": "Last season ending could haven been better",
-        "author": "david@sample.com"
+        "body": "Last season ending could haven been better"
       }
     ]
   },
@@ -54,13 +49,11 @@
     "reviews": [
       {
         "stars": 5,
-        "body": "I love this show!",
-        "author": "joe@sample.com"
+        "body": "I love this show!"
       },
       {
         "stars": 5,
-        "body": "BAZINGA!!!",
-        "author": "sheldon.cooper@sample.com"
+        "body": "BAZINGA!!!"
       }
     ]
   },

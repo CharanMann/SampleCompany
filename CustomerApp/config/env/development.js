@@ -1,5 +1,5 @@
 module.exports = {
-    hostname: 'customers.sample.com',
-	port: 8004,
-	applicationContext: '/customerApp'
+    hostname: 'customers.sc.com',
+    port: 8004,
+    applicationContext: '/customerApp'
 };

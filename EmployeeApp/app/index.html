@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -45,51 +46,52 @@
 
 <body ng-app="app">
 
-<header id="site-header">
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <header id="site-header">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#/">Employee Intranet Portal</a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Useful links <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#/history">History</a></li>
+                                <li><a href="#/profile">Profile</a></li>
+                                <li><a href="">Travel</a></li>
+                                <li><a href="">Expenses</a></li>
+                                <li><a href="">Benefits</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#/">Back to Dashboard</a></li>
+                        <li><a href="#/logout">Logout</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section id="main">
         <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                        aria-expanded="false" aria-controls="navbar">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="#/">Employee Intranet Portal</a>
-            </div>
-            <div id="navbar" class="navbar-collapse collapse">
-                <ul class="nav navbar-nav navbar-right">
-                    <li class="dropdown">
-                        <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                           aria-expanded="false">Useful links <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="#/history">History</a></li>
-                            <li><a href="#/profile">Profile</a></li>
-                            <li><a href="">Travel</a></li>
-                            <li><a href="">Expenses</a></li>
-                            <li><a href="">Benefits</a></li>
-                        </ul>
-                    </li>
-                    <li><a href="#/">Back to Dashboard</a></li>
-                    <li><a href="#/logout">Logout</a></li>
-                </ul>
-            </div>
+            <ng-view></ng-view>
         </div>
-    </nav>
-</header>
+    </section>
 
-<section id="main">
-    <div class="container">
-        <ng-view></ng-view>
-    </div>
-</section>
-
-<!-- Bootstrap core JavaScript
+    <!-- Bootstrap core JavaScript
 ================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="node_modules/jquery/dist/jquery.min.js"></script>
-<script>window.jQuery || document.write('<script src="node_modules/jquery/dist/jquery.min.js"><\/script>')</script>
-<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="node_modules/jquery/dist/jquery.min.js"></script>
+    <script>
+        window.jQuery || document.write('<script src="node_modules/jquery/dist/jquery.min.js"><\/script>')
+    </script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 </body>
+
 </html>

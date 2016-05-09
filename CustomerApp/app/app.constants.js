@@ -1,4 +1,5 @@
 angular.module('app.constants', [])
     .constant('appConstants', {
-        serverURI: 'http://localhost:8010/history/'
+      openAMCookie: 'iPlanetDirectoryPro',
+      openAMURL: 'http://openam13.sc.com:8080/openam'
      });
