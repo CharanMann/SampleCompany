@@ -15,4 +15,5 @@ var routes = require("./routes/txDetails.js")(server);
 
 // START THE SERVER
 server.listen(config.port);
-console.log('Common Services server running at http://' + config.hostname + ':' + config.port);
+console.log('Direct Access - Common Services server running @ ' + config.url);
+console.log('Via OpenIG - Common Services server running @ ' + config.OpenIG_url);

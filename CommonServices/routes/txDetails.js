@@ -27,11 +27,11 @@ var appRouter = function(server) {
             if (users[i].id == req.params.id) {
                 var user = JSON.stringify(users[i]);
                 console.log(new Date().toString() + " Found user: " + user);
+                res.setHeader('Content-Type', 'application/json; charset=utf-8');
 
                 // Disabling CORS filters as these are now set in OpenIG2
                 //                res.setHeader('Access-Control-Allow-Origin', "*");
                 //                res.setHeader('Access-Control-Allow-Credentials', true);
-                //                res.setHeader('Content-Type', 'application/json; charset=utf-8');
                 //                res.setHeader('Server', 'sample.com');
 
                 res.end(user);
@@ -43,15 +43,15 @@ var appRouter = function(server) {
     // Get all Tx History; http://localhost:8010/txHistory/all
     server.get('/txHistory/all', function(req, res) {
         console.log(new Date().toString() + ' Reading all users');
+        res.setHeader('Content-Type', 'application/json; charset=utf-8');
 
         // Disabling CORS filters as these are now set in OpenIG2
         //        res.setHeader('Access-Control-Allow-Origin', "*");
         //        res.setHeader('Access-Control-Allow-Credentials', true);
-        //        res.setHeader('Content-Type', 'application/json; charset=utf-8');
         //        res.setHeader('Server', 'sample.com');
 
         res.end(JSON.stringify(users));
     });
-}
+};
 
 module.exports = appRouter;

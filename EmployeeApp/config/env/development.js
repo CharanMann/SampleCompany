@@ -1,5 +1,6 @@
 module.exports = {
-	hostname: 'employees.sc.com',
 	port: 8002,
-	applicationContext: '/employeeApp'
+	applicationContext: '/employeeApp',
+	url: 'http://employees.sc.com:8002/employeeApp/',
+	OpenIG_url: 'http://employees-ig.sc.com:9000/employeeApp/'
 };
