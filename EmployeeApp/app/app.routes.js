@@ -4,7 +4,7 @@ angular
 
 function config($routeProvider) {
     $routeProvider.
-    when('/', {
+        when('/', {
             templateUrl: 'sections/home/home.html',
             controller: 'NewsController as news'
         })
@@ -13,8 +13,14 @@ function config($routeProvider) {
             controller: 'TxController as tx'
         })
         .when('/profile', {
-             templateUrl: 'sections/profile/profile.html',
-             controller: 'ProfileController as profile'
+            templateUrl: 'sections/profile/profile.html',
+            controller: 'ProfileController as profile'
+        })
+        .when('/logout', {
+            templateUrl: 'sections/public/logout.html'
+        })
+        .when('/denied', {
+            templateUrl: 'sections/public/accessDenied.html'
         })
         .otherwise({
             redirectTo: '/'
