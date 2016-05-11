@@ -16,12 +16,6 @@ function config($routeProvider) {
             templateUrl: 'sections/profile/profile.html',
             controller: 'ProfileController as profile'
         })
-        .when('/logout', {
-            templateUrl: 'sections/public/logout.html'
-        })
-        .when('/denied', {
-            templateUrl: 'sections/public/accessDenied.html'
-        })
         .otherwise({
             redirectTo: '/'
         });
