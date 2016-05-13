@@ -16,8 +16,8 @@ angular
         var implicitParams = {
             "response_type": "token",
             "scope": "uid mail",
-            "client_id": "employeeApp",
-            "redirect_uri": 'http://employees-ig.sc.com:9000/employeeApp/oauth2_callback.html'
+            "client_id": appConstants.clientID,
+            "redirect_uri": appConstants.redirectURI
         };
 
         // Check if access token is present in request param.

@@ -9,7 +9,7 @@
             parameterMap[responseParameters[i].split("=")[0]] = responseParameters[i].split("=")[1];
         }
         if (parameterMap.access_token !== undefined && parameterMap.access_token !== null) {
-            window.location.href = "http://employees-ig.sc.com:9000/employeeApp/#/history?tokenId=" + parameterMap.access_token;
+            window.location.href = "/employeeApp/#/history?tokenId=" + parameterMap.access_token;
         } else {
             alert("Issue in performing OAuth2 implicit grant flow. No Access Token found in URL fragment!");
         }
