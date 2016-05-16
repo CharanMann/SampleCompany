@@ -10,11 +10,11 @@
     <meta name="author" content="">
     <link rel="icon" href="assets/images/favicon.ico">
 
-    <title>Employee Intranet Portal</title>
+    <title>Travel Portal</title>
 
     <!-- ASSETS -->
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link href="assets/css/dashboard.css" rel="stylesheet">
+    <link href="assets/css/offcanvas.css" rel="stylesheet">
     <!-- / -->
 
 </head>
@@ -22,7 +22,7 @@
 <body>
 
     <header id="site-header">
-        <nav class="navbar navbar-inverse navbar-fixed-top">
+        <nav class="navbar navbar-fixed-top navbar-inverse">
             <div class="container">
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -31,21 +31,29 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="/employeeApp">Employee Intranet Portal</a>
+                    <a class="navbar-brand" href="#/">Travel Portal</a>
                 </div>
-              </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#/">Home</a></li>
+                        <li><a href="#/">About</a></li>
+                    </ul>
+                </div>
+                <!-- /.nav-collapse -->
+            </div>
+            <!-- /.container -->
         </nav>
+        <!-- /.navbar -->
     </header>
 
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-1 main">
                 <div class="alert alert-danger">
-                    <strong>Access Denied!</strong> You are not authorized to access this page. To re-login, <strong>clear browser history</strong> and <a href="/employeeApp">click here</a>
+                    <strong>Access Denied!</strong> You are not authorized to access this page. To re-login, <strong>clear browser history</strong> and <a href="/travelApp">click here</a>
                 </div>
                 <div>
-                    <img class="featurette-image img-responsive center-block" src="assets/images/denied.jpg" height="1000" width="1000"
-                         alt="Generic placeholder image">
+                    <img class="featurette-image img-responsive center-block" src="assets/images/denied.jpg" height="1000" width="1000" alt="Generic placeholder image">
                 </div>
             </div>
         </div>
