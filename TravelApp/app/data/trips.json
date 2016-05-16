@@ -22,23 +22,23 @@
   },
   {
     "recordLocator": "YGTVFD",
-    "name": "Trip to London for Identity Summit",
+    "name": "OpenIG Architecture workshop",
     "startDate": "10-01-2016",
-    "endDate": "10-02-2016",
+    "endDate": "10-05-2016",
     "cost": "$1118.32"
   },
   {
     "recordLocator": "DDDRTG",
-    "name": "Trip to Paris for Identity Summit",
+    "name": "OpenIDM supportability review",
     "startDate": "11-01-2016",
-    "endDate": "11-02-2016",
+    "endDate": "11-05-2016",
     "cost": "$1899.12"
   },
   {
-    "recordLocator": "ESAYPE",
-    "name": "Trip to Sydney for Identity Summit",
-    "startDate": "08-09-2016",
-    "endDate": "08-10-2016",
+    "recordLocator": "RTGSRS",
+    "name": "OpenAM Architecture workshop",
+    "startDate": "12-09-2016",
+    "endDate": "12-14-2016",
     "cost": "$1243.11"
   }
 ]
