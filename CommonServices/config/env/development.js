@@ -1,5 +1,5 @@
 module.exports = {
     port: 8010,
-    url: 'http://apis.sc.com:8010/history/',
-    OpenIG_url: 'http://apis-ig.sc.com:9002/history/'
+    url: 'http://apis.sample.com:8010/history/',
+    OpenIG_url: 'http://apis-ig.sample.com:9002/history/'
 };
