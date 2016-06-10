@@ -12,7 +12,7 @@ angular
                         'X-OpenAM-Password': password
                     },
                     data: {},
-                    url: appConstants.openAMURL + '/json/employees/authenticate'
+                    url: appConstants.openAMURL + '/json/customers/authenticate'
                 };
                 return $http(req);
             },
@@ -22,7 +22,7 @@ angular
                     headers: {
                         'Accept': 'application/json'
                     },
-                    url: appConstants.openAMURL + "/json/employees/sessions/" + encodeURIComponent(tokenId),
+                    url: appConstants.openAMURL + "/json/customers/sessions/" + encodeURIComponent(tokenId),
                     data: {},
                     params: {
                         _action: 'validate'
@@ -36,7 +36,7 @@ angular
                     headers: {
                         'iPlanetDirectoryPro': tokenId
                     },
-                    url: appConstants.openAMURL + "/json/employees/users/" + encodeURIComponent(uid)
+                    url: appConstants.openAMURL + "/json/customers/users/" + encodeURIComponent(uid)
                 };
                 return $http(req);
             }
