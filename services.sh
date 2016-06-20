@@ -2,27 +2,53 @@
 #
 # Script to start/stop/restart SampleCompany services
 start() {
-	#/opt/forgerock/opendjis1/bin/start-ds
-	cd /opt/forgerock/SampleCompany/CommonServices/
-	node server.js &
-	echo "********************** CommonServices started ***********************"
+		cd /opt/forgerock/SampleCompany/CommonServices/
+		/usr/local/bin/node server.js &
+		echo "********************** SampleCompany-CommonServices started ***********************"
+
+		cd /opt/forgerock/SampleCompany/EmployeeApp/
+		/usr/local/bin/npm install &
+		/usr/local/bin/npm start &
+		echo "********************** SampleCompany-EmployeeApp started ***********************"
+
+		cd /opt/forgerock/SampleCompany/TravelApp/
+		/usr/local/bin/npm install &
+		/usr/local/bin/npm start &
+		echo "********************** SampleCompany-TravelApp started ***********************"
+
+		cd /opt/forgerock/SampleCompany/CustomerApp/
+		/usr/local/bin/npm install &
+		/usr/local/bin/npm start &
+		echo "********************** SampleCompany-CustomerApp started ***********************"
+
+		/opt/forgerock/OpenIG1/bin/startup.sh
+		echo "********************** OpenIG1 instance started ***********************"
+
+		/opt/forgerock/OpenIG2/bin/startup.sh
+		echo "********************** OpenIG2 instance started ***********************"
+
+		/opt/forgerock/opendjis1/bin/start-ds
+		echo "********************** OpenDJ Identity Store started ***********************"
+
+		/opt/forgerock/OpenAM-Server1/bin/startup.sh
+		echo "********************** OpenAM instance started ***********************"
 }
 # Stop the OpenAM and depedent services
 stop() {
-        sudo service haproxy stop
-        echo "********************** HAProxy stoped ***********************"
+    killall node
+    echo "********************** Sample Company apps stopped ***********************"
 
-        sudo /etc/init.d/apache2 stop
-        echo "********************** Apache2 stoped ***********************"
+		/opt/forgerock/OpenIG1/bin/shutdown.sh
+		echo "********************** OpenIG1 instance stoped ***********************"
 
-        /opt/forgerock/opendjis1/bin/stop-ds
-        echo "********************** OpenDJ Identity Store stoped ***********************"
+		/opt/forgerock/OpenIG2/bin/shutdown.sh
+		echo "********************** OpenIG2 instance stoped ***********************"
 
-        /opt/forgerock/opendjcs1/bin/stop-ds
-        echo "********************** OpenDJ Config Store stoped ***********************"
+    /opt/forgerock/opendjis1/bin/stop-ds
+    echo "********************** OpenDJ Identity Store stoped ***********************"
 
-        /opt/forgerock/Openam1_instance/bin/shutdown.sh
-        echo "********************** OpenAM instance stoped ***********************"
+    /opt/forgerock/OpenAM-Server1/bin/shutdown.sh
+    echo "********************** OpenAM instance stoped ***********************"
 }
 
 ### services options ###
@@ -35,8 +61,7 @@ case "$1" in
         ;;
   status)
         ps -ef|grep java
-	ps -ef|grep apache2
-	ps -ef|grep haproxy
+				ps -ef|grep node
         ;;
   restart)
         stop
