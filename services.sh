@@ -3,22 +3,23 @@
 # Script to start/stop/restart SampleCompany services
 start() {
 		cd /opt/forgerock/SampleCompany/CommonServices/
-		/usr/local/bin/node server.js &
+		/usr/bin/npm install &
+		/usr/bin/node server.js &
 		echo "********************** SampleCompany-CommonServices started ***********************"
 
 		cd /opt/forgerock/SampleCompany/EmployeeApp/
-		/usr/local/bin/npm install &
-		/usr/local/bin/npm start &
+		/usr/bin/npm install &
+		/usr/bin/npm start &
 		echo "********************** SampleCompany-EmployeeApp started ***********************"
 
 		cd /opt/forgerock/SampleCompany/TravelApp/
-		/usr/local/bin/npm install &
-		/usr/local/bin/npm start &
+		/usr/bin/npm install &
+		/usr/bin/npm start &
 		echo "********************** SampleCompany-TravelApp started ***********************"
 
 		cd /opt/forgerock/SampleCompany/CustomerApp/
-		/usr/local/bin/npm install &
-		/usr/local/bin/npm start &
+		/usr/bin/npm install &
+		/usr/bin/npm start &
 		echo "********************** SampleCompany-CustomerApp started ***********************"
 }
 # Stop the OpenAM and depedent services
