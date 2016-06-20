@@ -13,7 +13,7 @@ ForgeRock shall not be liable for any direct, indirect or consequential damages 
 Pre-requisites :
 ================
 1. Install NPM and NodeJS. For Ubuntu refer these instructions (How To Install the Distro-Stable Version): https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server
-2. Verify that NPM and NodeJS has been installed successfully by running below commands:
+2. Verify that NPM and NodeJS has been installed successfully by running below commands: <br />
 $ node -v <br />
 v0.10.25 <br />
 $ npm -v <br />
@@ -22,7 +22,7 @@ $ npm -v <br />
 SampleCompany installation :
 ===========================
 1. Copy SampleCompany folder to /opt/forgerock/SampleCompany
-2. Specify below local host enteries (both on server hosting and client accessing these applications):
+2. Specify below local host enteries (both on server hosting and client accessing these applications): <br />
 <IP Address>  employees.sc.com # Internal Employee App, Port:8002 <br />
 <IP Address>  customers.sc.com  # External Customer App, Port:8004 <br />
 <IP Address>  apis.sample.com # API server, Port:8010 <br />
@@ -36,8 +36,9 @@ SampleCompany URLs :
 ===========================
 1. CommonServices direct: http://apis.sample.com:8010/history/emp1
 2. EmployeeApp direct: http://employees.sc.com:8002/employeeApp/#/
-3. CustomerApp direct: http://employees.sc.com:8002/employeeApp/#/
+3. CustomerApp direct: http://customers.sc.com:8004/customerApp/#/
 4. TravelApp direct: http://travel.sample.com:8012/travelApp/#/
+5. BenefitsApp direct: http://benefits.sample.com:8014/benefitsApp/#/
 
 * * *
 
