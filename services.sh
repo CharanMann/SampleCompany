@@ -35,6 +35,7 @@ start() {
 }
 # Stop the OpenAM and depedent services
 stop() {
+		cd /opt/forgerock/SampleCompany
     killall node
     echo "********************** Sample Company apps stopped ***********************"
 
