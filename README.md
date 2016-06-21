@@ -18,19 +18,19 @@ $ node -v <br />
 v0.10.25 <br />
 $ npm -v <br />
 1.3.10
+3. Specify below local host enteries (both on server hosting and client accessing these applications): <br />
+[IP Address]  employees.sc.com # Internal Employee App, Port:8002 <br />
+[IP Address]  customers.sc.com  # External Customer App, Port:8004 <br />
+[IP Address]  apis.sample.com # API server, Port:8010 <br />
+[IP Address]  travel.sample.com  # Internal Travel App, Port:8012 <br />
+[IP Address]  benefits.sample.com # Internal Benefits App, Port:8014 <br />
 
 SampleCompany installation :
 ===========================
 1. Copy SampleCompany folder to /opt/forgerock/SampleCompany
-2. Specify below local host enteries (both on server hosting and client accessing these applications): <br />
-<IP Address>  employees.sc.com # Internal Employee App, Port:8002 <br />
-<IP Address>  customers.sc.com  # External Customer App, Port:8004 <br />
-<IP Address>  apis.sample.com # API server, Port:8010 <br />
-<IP Address>  travel.sample.com  # Internal Travel App, Port:8012 <br />
-<IP Address>  benefits.sample.com # Internal Benefits App, Port:8014 <br />
-3. To start the services, execute /opt/forgerock/SampleCompany/services.sh start. Note that while starting these services for the first time you may need to execute 'services.sh start' twice as NPM needs to download the required dependencies.
-4. To check the status of services, execute /opt/forgerock/SampleCompany/services.sh status
-5. To stop the services, execute /opt/forgerock/SampleCompany/services.sh stop
+2. To start the services, execute /opt/forgerock/SampleCompany/services.sh start. Note that while starting these services for the first time you may need to execute 'services.sh start' twice as NPM needs to download the required dependencies.
+3. To check the status of services, execute /opt/forgerock/SampleCompany/services.sh status
+4. To stop the services, execute /opt/forgerock/SampleCompany/services.sh stop
 
 SampleCompany URLs :
 ===========================
