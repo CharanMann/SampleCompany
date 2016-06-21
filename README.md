@@ -17,7 +17,7 @@ Pre-requisites :
 $ node -v <br />
 v0.10.25 <br />
 $ npm -v <br />
-1.3.10 <br />  
+1.3.10
 
 SampleCompany installation :
 ===========================
