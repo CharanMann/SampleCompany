@@ -1,0 +1,32 @@
+[
+  {
+    "type": "Medical",
+    "name": "Full PPO Combined Deductible",
+    "coverage": "Family",
+    "fee": "$200"
+  },
+  {
+    "type": "Dental",
+    "name": "Delta Dental PPO",
+    "coverage": "Family",
+    "fee": "$20"
+  },
+  {
+    "type": "Vision",
+    "name": "VSP",
+    "coverage": "Family",
+    "fee": "$5  "
+  },
+  {
+    "type": "AD&D",
+    "name": "AD&D",
+    "coverage": "Employee",
+    "fee": "$5"
+  },
+  {
+    "type": "Life",
+    "name": "Life",
+    "coverage": "Employee",
+    "fee": "$0"
+  }
+]

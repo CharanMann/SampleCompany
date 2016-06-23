@@ -1,0 +1,44 @@
+<div class="container">
+
+    <div class="page-header">
+        <h1>Welcome to Benefits Portal</h1>
+    </div>
+
+    <h3>Current Enrollments:</h3>
+    <p>Plans listed with an Edit link allow changes any time during the year, all other plans require <strong> a qualified life event </strong> to make changes.</p>
+
+    <div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Type</th>
+                    <th>Plan Name</th>
+                    <th>Coverage</th>
+                    <th>Fee/ Per Pay Period</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="enrollment in benefits.enrollments">
+                    <td>{{enrollment.type}}</td>
+                    <td>{{enrollment.name}}</td>
+                    <td>{{enrollment.coverage}}</td>
+                    <td>{{enrollment.fee}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <hr>
+    <h3>Additional Benefits:</h3>
+    <p>Holidays Calender</p>
+    <p>401K</p>
+    <p>Stock Options</p>
+    <p>Employee Assistance Program</p>
+    <hr>
+
+    <footer>
+        <p>&copy; 2016 Sample Company, Inc.</p>
+    </footer>
+
+</div>
+<!--/.container-->
