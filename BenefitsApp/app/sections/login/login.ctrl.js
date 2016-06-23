@@ -7,33 +7,10 @@ angular
         vm.login = login;
 
         function login() {
+            $rootScope.userId = vm.username;
 
-
-            $rootScope.globals = {
-                currentUser: {
-                    username: username,
-                    password: password
-                }
-            };
-
-            //$http.defaults.headers.common['Authorization'] = 'Basic ' + username; // jshint ignore:line
-            $cookies.put('globals', $rootScope.globals);
-            $location.path('/');
-            $cookies.put('myFavorite', 'oatmeal');
+            $cookies.put('userId', $rootScope.userId);
+            $location.path('#/');
         }
-
-        // (function initController() {
-        //     // reset login status
-        //     // AuthenticationService.ClearCredentials();
-        // })();
-        //
-        // function login() {
-        //     // AuthenticationService.Login(vm.username, vm.password, function(response) {
-        //     //     if (response.success) {
-        //     //         AuthenticationService.SetCredentials(vm.username, vm.password);
-        //     //         $location.path('/');
-        //     //     }
-        //     // });
-        // }
 
     });
