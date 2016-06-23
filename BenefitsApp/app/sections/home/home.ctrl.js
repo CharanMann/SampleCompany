@@ -10,5 +10,5 @@ angular
             benefits.enrollments = data;
         });
 
-        benefits.username = $cookies.get('userId');
+        benefits.username = JSON.parse($cookies.get('ssoToken')).username;
     });

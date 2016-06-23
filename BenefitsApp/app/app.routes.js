@@ -20,12 +20,16 @@ function config($routeProvider) {
 
 function run($rootScope, $location, $cookies, $http) {
     // keep user logged in after page refresh
-    $rootScope.userId = $cookies.get('userId') || {};
+    if (!angular.isUndefined($cookies.get('ssoToken'))) {
+        $rootScope.ssoToken = JSON.parse($cookies.get('ssoToken'));
+    } else {
+        $rootScope.ssoToken = {};
+    }
 
     $rootScope.$on('$locationChangeStart', function(event, next, current) {
         // redirect to login page if not logged in and trying to access a restricted page
         var restrictedPage = $.inArray($location.path(), ['/login']) === -1;
-        var loggedIn = $rootScope.userId;
+        var loggedIn = $rootScope.ssoToken.username;
         if (restrictedPage && !loggedIn) {
             $location.path('/login');
         }

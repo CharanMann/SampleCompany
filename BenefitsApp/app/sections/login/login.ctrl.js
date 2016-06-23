@@ -7,9 +7,11 @@ angular
         vm.login = login;
 
         function login() {
-            $rootScope.userId = vm.username;
+            $rootScope.ssoToken = {
+                "username": vm.username
+            };
 
-            $cookies.put('userId', $rootScope.userId);
+            $cookies.put('ssoToken', JSON.stringify($rootScope.ssoToken));
             $location.path('#/');
         }
 
