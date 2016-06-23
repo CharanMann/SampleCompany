@@ -1,6 +1,6 @@
 angular
     .module('app.core')
-    .controller("BenefitsController", ['$http', function($http) {
+    .controller("BenefitsController", function($http) {
         var benefits = this;
         benefits.title = 'Benefits Portal';
 
@@ -9,4 +9,4 @@ angular
         $http.get('data/benefits.json').success(function(data) {
             benefits.enrollments = data;
         });
-    }]);
+    });
