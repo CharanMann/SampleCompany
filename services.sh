@@ -17,6 +17,11 @@ start() {
 		/usr/bin/npm start &
 		echo "********************** SampleCompany-TravelApp started ***********************"
 
+		cd /opt/forgerock/SampleCompany/BenefitsApp/
+		/usr/bin/npm install &
+		/usr/bin/npm start &
+		echo "********************** SampleCompany-BenefitsApp started ***********************"
+
 		cd /opt/forgerock/SampleCompany/CustomerApp/
 		/usr/bin/npm install &
 		/usr/bin/npm start &

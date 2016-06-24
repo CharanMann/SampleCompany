@@ -11,7 +11,7 @@ angular
         var authService = {
             authenticate: function(uid, password) {
                 var response;
-                var user = getUserById(users, uid);
+                var user = getUserById(uid);
                 if (!angular.isUndefined(user) && user.password === password) {
                     response = {
                         success: true
@@ -34,10 +34,10 @@ angular
             }
         };
 
-        function getUserById(arr, uid) {
-            for (var d = 0, len = arr.length; d < len; d += 1) {
-                if (arr[d].username === uid) {
-                    return arr[d];
+        function getUserById(uid) {
+            for (var d = 0, len = users.length; d < len; d += 1) {
+                if (users[d].username === uid) {
+                    return users[d];
                 }
             }
         }
