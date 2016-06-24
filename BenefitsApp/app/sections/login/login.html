@@ -14,5 +14,10 @@
         <div class="form-actions">
             <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Login</button>
         </div>
+
+        <br/>
+        <div ng-show="error" class="alert alert-danger">
+            <strong>{{error}}</strong>
+        </div>
     </form>
 </div>

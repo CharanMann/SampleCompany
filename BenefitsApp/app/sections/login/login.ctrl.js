@@ -1,6 +1,6 @@
 angular
     .module('app.core')
-    .controller("LoginController", function($cookies, $location, $rootScope, appConstants, AuthService) {
+    .controller("LoginController", function($cookies, $location, $rootScope, $scope, appConstants, AuthService) {
 
         var vm = this;
         vm.title = 'Login to Benefits Portal';
@@ -8,13 +8,14 @@ angular
 
         function login() {
 
-            if (AuthService.authenticate(vm.username, vm.password)) {
-                $rootScope.ssoToken = {
-                    "username": vm.username
-                };
+            var response = AuthService.authenticate(vm.username, vm.password);
 
-                $cookies.put(appConstants.authCookie, JSON.stringify($rootScope.ssoToken));
+            if (response.success) {
+                AuthService.setSSOToken(vm.username);
                 $location.path('#/');
+            } else {
+                $scope.error = response.message;
+                $location.path('/login');
             }
         }
 

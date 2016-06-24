@@ -1,6 +1,6 @@
 angular
     .module('app.services', [])
-    .factory('AuthService', ['$http', 'appConstants', function($http, appConstants) {
+    .factory('AuthService', ['$http', '$cookies', '$rootScope', 'appConstants', function($http, $cookies, $rootScope, appConstants) {
 
         var users = [];
 
@@ -10,15 +10,31 @@ angular
 
         var authService = {
             authenticate: function(uid, password) {
-                var user = getById(users, uid);
-                if (null !== user && user.password === password) {
-                    return true;
+                var response;
+                var user = getUserById(users, uid);
+                if (!angular.isUndefined(user) && user.password === password) {
+                    response = {
+                        success: true
+                    };
+                } else {
+                    response = {
+                        success: false,
+                        message: 'Username or password is incorrect !!!'
+                    };
                 }
-                return false;
+                return response;
+            },
+
+            setSSOToken: function(uid) {
+                $rootScope.ssoToken = {
+                    "username": uid
+                };
+
+                $cookies.put(appConstants.authCookie, JSON.stringify($rootScope.ssoToken));
             }
         };
 
-        function getById(arr, uid) {
+        function getUserById(arr, uid) {
             for (var d = 0, len = arr.length; d < len; d += 1) {
                 if (arr[d].username === uid) {
                     return arr[d];
