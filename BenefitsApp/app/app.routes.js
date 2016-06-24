@@ -1,5 +1,5 @@
 angular
-    .module('app.routes', ['ngRoute', 'ngCookies'])
+    .module('app.routes', ['ngRoute', 'ngCookies', 'app.constants'])
     .config(config)
     .run(run);
 
@@ -18,9 +18,9 @@ function config($routeProvider) {
         });
 }
 
-function run($rootScope, $location, $cookies, $http) {
+function run(appConstants, $rootScope, $location, $cookies, $http) {
     // keep user logged in after page refresh
-    if (!angular.isUndefined($cookies.get('ssoToken'))) {
+    if (!angular.isUndefined($cookies.get(appConstants.authCookie))) {
         $rootScope.ssoToken = JSON.parse($cookies.get('ssoToken'));
     } else {
         $rootScope.ssoToken = {};
