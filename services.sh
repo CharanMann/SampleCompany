@@ -1,6 +1,30 @@
 #!/bin/bash
 #
-# Script to start/stop/restart SampleCompany services
+# Script to install/start/stop/restart SampleCompany services
+
+# Install SampleCompany services
+install() {
+		cd /opt/forgerock/SampleCompany/CommonServices/
+		/usr/bin/npm install &
+		echo "********************** SampleCompany-CommonServices installed ***********************"
+
+		cd /opt/forgerock/SampleCompany/EmployeeApp/
+		/usr/bin/npm install &
+		echo "********************** SampleCompany-EmployeeApp installed ***********************"
+
+		cd /opt/forgerock/SampleCompany/TravelApp/
+		/usr/bin/npm install &
+		echo "********************** SampleCompany-TravelApp installed ***********************"
+
+		cd /opt/forgerock/SampleCompany/BenefitsApp/
+		/usr/bin/npm install &
+		echo "********************** SampleCompany-BenefitsApp installed ***********************"
+
+		cd /opt/forgerock/SampleCompany/CustomerApp/
+		/usr/bin/npm install &
+		echo "********************** SampleCompany-CustomerApp installed ***********************"
+}
+# Start SampleCompany services
 start() {
 		cd /opt/forgerock/SampleCompany/CommonServices/
 		/usr/bin/npm install &
@@ -27,7 +51,7 @@ start() {
 		/usr/bin/npm start &
 		echo "********************** SampleCompany-CustomerApp started ***********************"
 }
-# Stop the OpenAM and depedent services
+# Stop SampleCompany services
 stop() {
 		cd /opt/forgerock/SampleCompany
     kill -9 $(ps -ef | grep 'server.js' | awk '{print $2}')
@@ -36,6 +60,9 @@ stop() {
 
 ### services options ###
 case "$1" in
+	install)
+        install
+        ;;
   start)
         start
         ;;
@@ -50,7 +77,7 @@ case "$1" in
         start
         ;;
   *)
-        echo $"Usage: $0 {start|stop|restart|status}"
+        echo $"Usage: $0 {install|start|stop|restart|status}"
         exit 1
 esac
 exit 0

@@ -10,5 +10,5 @@ server.use(config.applicationContext + '/node_modules', express.static('./node_m
 
 // START THE SERVER
 server.listen(config.port);
-console.log('Direct Access - Customer App server running @ ' + config.url);
-console.log('Via OpenIG - Customer App server running @ ' + config.OpenIG_url);
+console.log('Customer App (Direct Access) - server running @ ' + config.url);
+console.log('Customer App (Via OpenIG) - server running @ ' + config.OpenIG_url);

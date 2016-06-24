@@ -6,6 +6,8 @@ angular.module('app.constants', [])
         apisURLOpenIG: 'http://apis-ig.sample.com:9002/history/',
         travelAppURL: 'http://travel.sample.com:8012/travelApp/',
         travelAppURLOpenIG: 'http://travel-ig.sample.com:9002/travelApp/',
+        benefitsAppURL: 'http://benefits.sc.com:8014/benefitsApp/',
+        benefitsAppURLOpenIG: 'http://benefits-ig.sc.com:9002/benefitsApp/',
         clientID: 'employeeApp',
         redirectURI: 'http://employees-ig.sc.com:9000/employeeApp/oauth2_callback.html'
      });

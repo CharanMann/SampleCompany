@@ -10,5 +10,5 @@ server.use(config.applicationContext + '/node_modules', express.static('./node_m
 
 // START THE SERVER
 server.listen(config.port);
-console.log('Direct Access - Travel App server running @ ' + config.url);
-console.log('Via OpenIG - Travel App server running @ ' + config.OpenIG_url);
+console.log('Travel App (Direct Access) - server running @ ' + config.url);
+console.log('Travel App (Via OpenIG) - server running @ ' + config.OpenIG_url);

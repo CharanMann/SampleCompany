@@ -24,15 +24,18 @@ $ npm -v <br />
 [IP Address]  customers.sc.com  # External Customer App, Port:8004 <br />
 [IP Address]  apis.sample.com # API server, Port:8010 <br />
 [IP Address]  travel.sample.com  # Internal Travel App, Port:8012 <br />
-[IP Address]  benefits.sample.com # Internal Benefits App, Port:8014 <br />
+[IP Address]  benefits.sc.com # Internal Benefits App, Port:8014 <br />
 
 SampleCompany installation :
 ===========================
 1. Copy SampleCompany folder to /opt/forgerock/SampleCompany
-2. Start/ Stop services:
-  * To start the services, execute /opt/forgerock/SampleCompany/services.sh start. Note that while starting these services for the first time you may need to execute 'services.sh start' twice as NPM needs to download the required dependencies.
+2. Install services:
+  * To install the services, execute /opt/forgerock/SampleCompany/services.sh install. Note that this is required only once; NPM downloads the required dependencies.
+3. Start/ Stop services:
+  * To start the services, execute /opt/forgerock/SampleCompany/services.sh start.
   * To check the status of services, execute /opt/forgerock/SampleCompany/services.sh status
   * To stop the services, execute /opt/forgerock/SampleCompany/services.sh stop
+  * To restart the services, execute /opt/forgerock/SampleCompany/services.sh restart
 
 SampleCompany URLs :
 ===========================
@@ -40,7 +43,7 @@ SampleCompany URLs :
 2. EmployeeApp direct: http://employees.sc.com:8002/employeeApp/#/
 3. CustomerApp direct: http://customers.sc.com:8004/customerApp/#/
 4. TravelApp direct: http://travel.sample.com:8012/travelApp/#/
-5. BenefitsApp direct: http://benefits.sample.com:8014/benefitsApp/#/
+5. BenefitsApp direct: http://benefits.sc.com:8014/benefitsApp/#/
 
 * * *
 
