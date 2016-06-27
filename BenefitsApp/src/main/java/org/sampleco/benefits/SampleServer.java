@@ -36,6 +36,7 @@ public final class SampleServer {
     private static final String EOL = System.getProperty("line.separator");
     private static final Logger LOGGER = Logger.getLogger(SampleServer.class.getName());
     private static final int DEFAULT_PORT = 8014;
+    private static final String SSO_COOKIE = "SSOCookie";
 
     /**
      * Not used.
@@ -54,32 +55,7 @@ public final class SampleServer {
                 + "Defaults: " + DEFAULT_PORT;
         int port = DEFAULT_PORT;
 
-        runServer(port);
-    }
-
-    /**
-     * Run the HTTP server, listening on the chosen port.
-     * <p>
-     * On HTTP GET the server returns a home page with a login form.
-     * <p>
-     * On HTTP PUT with valid credentials, the server returns a profile page.
-     *
-     * @param port Port on which the server listens for HTTP
-     */
-    static void runServer(int port) {
-        start(port, true);
-    }
-
-    /**
-     * Run the HTTP server, listening on the chosen port.
-     * <p>
-     * Use stop() to shut the server down.
-     *
-     * @param port Port on which the server listens for HTTP
-     * @return The HttpServer that is running if letRun is true
-     */
-    static HttpServer start(final int port) {
-        return start(port, false);
+        runServer(port, true);
     }
 
     /**
@@ -89,7 +65,7 @@ public final class SampleServer {
      * @param waitForCtrlC If true, only stop the server when the user enters Ctrl+C
      * @return The HttpServer that is running if letRun is true
      */
-    static HttpServer start(final int port, final boolean waitForCtrlC) {
+    static HttpServer runServer(final int port, final boolean waitForCtrlC) {
 
         final HttpServer httpServer = new HttpServer();
         System.out.println("Preparing to listen for HTTP on port " + port + ".");
@@ -122,15 +98,6 @@ public final class SampleServer {
     }
 
     /**
-     * Stop the HTTP Server started with waitForCtrlC set to false.
-     *
-     * @param httpServer The server to stop
-     */
-    static void stop(final HttpServer httpServer) {
-        httpServer.shutdownNow();
-    }
-
-    /**
      * Check whether username and password credentials are valid.
      *
      * @param username A username such as {@code demo}
@@ -142,7 +109,7 @@ public final class SampleServer {
             final String username, final String password)
             throws IOException {
 
-        if (null == username || null == password) {
+        if (isNullOrEmpty(username) || isNullOrEmpty(password)) {
             return false;
         }
 
@@ -188,20 +155,15 @@ public final class SampleServer {
         return content.toString();
     }
 
+    private static boolean isNullOrEmpty(String string) {
+        return string == null || string.length() == 0;
+    }
+
+
     /**
      * Handler for HTTP GET and HTTP PUT requests.
      */
     static class SampleHandler extends HttpHandler {
-
-        /**
-         * Returns true if the String to test is null nor empty.
-         *
-         * @param s The String to test.
-         * @return true if the String to test is null nor empty.
-         */
-        private static boolean isNullOrEmpty(final String s) {
-            return s == null || s.isEmpty();
-        }
 
         /**
          * Returns true if the String to test is neither null nor empty.
@@ -213,11 +175,23 @@ public final class SampleServer {
             return s != null && !s.isEmpty();
         }
 
+        /**
+         * Sets SSO Cookie.
+         *
+         * @param username A username such as {@code demo}
+         * @param response The response to the request
+         * @throws IOException Failed when checking credentials
+         */
+        private static void setSSOCookie(final String username,
+                                         final Response response) throws IOException {
+            Cookie cookie = new Cookie(SSO_COOKIE, "username:" + username);
+            cookie.setPath("/");
+            response.addCookie(cookie);
+
+        }
+
         @Override
         public void service(Request request, Response response) throws Exception {
-            if (request.getHttpHandlerPath().equalsIgnoreCase("/login")) {
-                response.addCookie(new Cookie("login-cookie", "chocolate-chip"));
-            }
 
             if (Method.GET == request.getMethod()) {
                 String homePage = getResourceAsString("/login.html");
@@ -229,25 +203,8 @@ public final class SampleServer {
             }
 
             if (Method.POST == request.getMethod()) {
-                String username;
-                String password;
-
-                // Allow use of IDToken1 (username) and IDToken2 (password)
-                // to simulate the behavior of the OpenAM classic UI login page.
-                username = request.getParameter("IDToken1");
-                password = request.getParameter("IDToken2");
-                if (username != null && password != null) {
-                    //simulateOpenAMResponse(username, password, response);
-                    return;
-                }
-
-                // Accept username and password as headers for testing.
-                if (notNullOrEmpty(request.getHeader("username"))) {
-                    username = request.getHeader("username");
-                }
-                if (notNullOrEmpty(request.getHeader("password"))) {
-                    password = request.getHeader("password");
-                }
+                String username = null;
+                String password = null;
 
                 // Accept username and password as parameters
                 // in the query string or as form-encoded data.
@@ -267,6 +224,8 @@ public final class SampleServer {
                 }
 
                 if (credentialsAreValid(username, password)) {
+
+                    setSSOCookie(username,response);
 
                     // Replace profile page placeholders and respond.
                     final StringBuilder headers = new StringBuilder();
