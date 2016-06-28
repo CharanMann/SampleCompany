@@ -34,7 +34,7 @@
                             <archive>
                                 <manifest>
                                     <addClasspath>true</addClasspath>
-                                    <mainClass>org.sampleco.benefits.SampleServer</mainClass>
+                                    <mainClass>org.sampleco.benefits.BenefitsServer</mainClass>
                                 </manifest>
                             </archive>
                         </configuration>
