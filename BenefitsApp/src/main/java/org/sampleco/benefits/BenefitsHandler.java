@@ -95,7 +95,8 @@ public class BenefitsHandler extends HttpHandler {
                 break;
 
             default:
-                buildError(403, "Forbidden", response);
+                // Redirect to Login page
+                redirectResponse(response, Constants.APP_CONTEXT + Constants.LOGIN_URI);
         }
     }
 

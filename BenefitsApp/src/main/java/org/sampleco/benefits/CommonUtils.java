@@ -63,7 +63,6 @@ public class CommonUtils {
     public static void setSSOCookie(String username,
                                     Request request, Response response) throws IOException {
         Cookie cookie = new Cookie(Constants.SSO_COOKIE, Constants.SSO_COOKIE_USERTOKEN + username);
-        cookie.setDomain(request.getServerName());
         cookie.setPath("/");
         response.addCookie(cookie);
     }
