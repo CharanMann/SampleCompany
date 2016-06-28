@@ -9,9 +9,12 @@
  * When distributing Covered Software, include this CDDL Header Notice in each file and include
  * the License file at legal/CDDLv1.0.txt. If applicable, add the following below the CDDL
  * Header, with the fields enclosed by brackets [] replaced by your own identifying
- * information: "Portions Copyright [year] [name of copyright owner]".
+ * information: "Portions copyright [year] [name of copyright owner]".
  *
- * Copyright 2014-2015 ForgeRock AS.
+ * Copyright 2016 Charan Mann
+ * Portions Copyrighted 2016 ForgeRock AS
+ *
+ * SampleCompany: Created by Charan Mann on 6/27/16 , 7:48 PM.
  */
 
 package org.sampleco.benefits;
@@ -33,10 +36,7 @@ import java.util.logging.Logger;
  */
 public final class SampleServer {
 
-    private static final String EOL = System.getProperty("line.separator");
     private static final Logger LOGGER = Logger.getLogger(SampleServer.class.getName());
-    private static final int DEFAULT_PORT = 8014;
-    private static final String SSO_COOKIE = "SSOCookie";
 
     /**
      * Not used.
@@ -46,16 +46,10 @@ public final class SampleServer {
 
     /**
      * Start an HTTP server.
-     *
-     * @param args Optionally specify a free port number.
-     *             Defaults: 8014 (HTTP)
      */
     public static void main(String[] args) {
-        final String usage = "Optionally specify HTTP port number. "
-                + "Defaults: " + DEFAULT_PORT;
-        int port = DEFAULT_PORT;
 
-        runServer(port, true);
+        runServer(Constants.DEFAULT_PORT, true);
     }
 
     /**
@@ -68,8 +62,7 @@ public final class SampleServer {
     static HttpServer runServer(final int port, final boolean waitForCtrlC) {
 
         final HttpServer httpServer = new HttpServer();
-        System.out.println("Preparing to listen for HTTP on port " + port + ".");
-        httpServer.addListener(new NetworkListener("HTTP", "0.0.0.0", port));
+        httpServer.addListener(new NetworkListener("HTTP", "benefits.sc.com", port));
 
         httpServer.getServerConfiguration().addHttpHandler(new SampleHandler());
 
@@ -144,7 +137,7 @@ public final class SampleServer {
         try {
             scanner = new Scanner(inputStream);
             while (scanner.hasNextLine()) {
-                content.append(scanner.nextLine()).append(EOL);
+                content.append(scanner.nextLine()).append(Constants.EOL);
             }
         } finally {
             if (scanner != null) {
@@ -182,82 +175,123 @@ public final class SampleServer {
          * @param response The response to the request
          * @throws IOException Failed when checking credentials
          */
-        private static void setSSOCookie(final String username,
-                                         final Response response) throws IOException {
-            Cookie cookie = new Cookie(SSO_COOKIE, "username:" + username);
+        private static void setSSOCookie(String username,
+                                         Request request, Response response) throws IOException {
+            Cookie cookie = new Cookie(Constants.SSO_COOKIE, Constants.SSO_COOKIE_USERTOKEN + username);
+            cookie.setDomain(request.getServerName());
             cookie.setPath("/");
             response.addCookie(cookie);
+        }
 
+        private static String isUserAuthenticated(Request request) {
+            Cookie[] cookies = request.getCookies();
+
+            for (Cookie cookie : cookies) {
+                if (Constants.SSO_COOKIE.equals(cookie.getName())) {
+                    return cookie.getValue().substring(Constants.SSO_COOKIE_USERTOKEN.length());
+                }
+            }
+            return null;
         }
 
         @Override
         public void service(Request request, Response response) throws Exception {
 
-            if (Method.GET == request.getMethod()) {
-                String homePage = getResourceAsString("/login.html");
-
-                response.setContentType("text/html");
-                response.setStatus(200, "OK");
-                response.setContentLength(homePage.length());
-                response.getWriter().write(homePage);
+            String requestURI = request.getRequestURI();
+            if (requestURI.length() >= Constants.APP_CONTEXT.length())
+            {
+                requestURI = requestURI.substring(Constants.APP_CONTEXT.length());
             }
 
-            if (Method.POST == request.getMethod()) {
-                String username = null;
-                String password = null;
+            String userID = isUserAuthenticated(request);
 
-                // Accept username and password as parameters
-                // in the query string or as form-encoded data.
-                if (notNullOrEmpty(request.getParameter("username"))) {
-                    username = request.getParameter("username");
-                }
-                if (notNullOrEmpty(request.getParameter("password"))) {
-                    password = request.getParameter("password");
-                }
+            if (notNullOrEmpty(userID)) {
+                redirectToHome(request, response, userID);
+            }
 
-                if (username == null || password == null) {
-                    final String authRequired = "Authorization Required";
-                    response.setStatus(401, authRequired);
-                    response.setContentLength(authRequired.length() + EOL.length());
-                    response.getWriter().write(authRequired + EOL);
-                    return;
-                }
+            switch (requestURI) {
 
-                if (credentialsAreValid(username, password)) {
+                case "/":
+                case "":
+                    returnError(403, "Forbidden", response);
+                    break;
 
-                    setSSOCookie(username,response);
+                case Constants.LOGIN_URI:
+                    if (Method.GET == request.getMethod()) {
+                        String loginPage = getResourceAsString(Constants.LOGIN_URI);
 
-                    // Replace profile page placeholders and respond.
-                    final StringBuilder headers = new StringBuilder();
-                    for (String name : request.getHeaderNames()) {
-                        for (String header : request.getHeaders(name)) {
-                            headers.append(name)
-                                    .append(": ")
-                                    .append(header)
-                                    .append("<br>");
-                        }
+                        response.setContentType("text/html");
+                        response.setStatus(200, "OK");
+                        response.setContentLength(loginPage.length());
+                        response.getWriter().write(loginPage);
                     }
 
-                    String profilePage = getResourceAsString("/home.html")
-                            .replaceAll(EOL, "####")
-                            .replaceAll("USERNAME", username)
-                            .replace("METHOD", request.getMethod().getMethodString())
-                            .replace("REQUEST_URI", request.getDecodedRequestURI())
-                            .replace("HEADERS", headers.toString())
-                            .replaceAll("####", EOL);
+                    if (Method.POST == request.getMethod()) {
+                        String username = null;
+                        String password = null;
 
-                    response.setContentType("text/html");
-                    response.setStatus(200, "OK");
-                    response.setContentLength(profilePage.length());
-                    response.getWriter().write(profilePage);
+                        // Accept username and password as parameters
+                        // in the query string or as form-encoded data.
+                        if (notNullOrEmpty(request.getParameter("username"))) {
+                            username = request.getParameter("username");
+                        }
+                        if (notNullOrEmpty(request.getParameter("password"))) {
+                            password = request.getParameter("password");
+                        }
 
-                } else {
-                    final String forbidden = "Forbidden";
-                    response.setStatus(403, forbidden);
-                    response.setContentLength(forbidden.length() + EOL.length());
-                    response.getWriter().write(forbidden + EOL);
-                }
+                        if (username == null || password == null) {
+                            returnError(401, "Authentication Failed", response);
+                            return;
+                        }
+
+                        if (credentialsAreValid(username, password)) {
+
+                            // Sets the SSO cookie
+                            setSSOCookie(username, request, response);
+
+                            // Redirect to Home page
+                            //redirectToHome(request, response, username);
+
+                            response.setStatus(302);
+                            response.setHeader("Location",Constants.APP_CONTEXT + Constants.HOME_URI);
+                        } else {
+                            returnError(401, "Authentication Failed", response);
+                        }
+                    }
+                    break;
+
+                case Constants.HOME_URI:
+                    response.setStatus(302);
+                    response.setHeader("Location",Constants.APP_CONTEXT + Constants.LOGIN_URI);
+                    break;
+
+                default:
+                    returnError(403, "Forbidden", response);
             }
+        }
+
+        private void returnError(int errorCode, String errorMessage, Response response) throws IOException {
+            response.setStatus(errorCode, errorMessage);
+            response.setContentLength(errorMessage.length() + Constants.EOL.length());
+            response.getWriter().write(errorMessage + Constants.EOL);
+        }
+
+        private void redirectToHome(Request request, Response response, String username) throws IOException {
+            // Replace profile page placeholders and respond.
+            final StringBuilder headers = new StringBuilder();
+
+            String homePage = getResourceAsString("/home.html")
+                    .replaceAll(Constants.EOL, "####")
+                    .replaceAll("USERNAME", username)
+                    .replace("METHOD", request.getMethod().getMethodString())
+                    .replace("REQUEST_URI", request.getDecodedRequestURI())
+                    .replace("HEADERS", headers.toString())
+                    .replaceAll("####", Constants.EOL);
+
+            response.setContentType("text/html");
+            response.setStatus(200, "OK");
+            response.setContentLength(homePage.length());
+            response.getWriter().write(homePage);
         }
     }
 }
