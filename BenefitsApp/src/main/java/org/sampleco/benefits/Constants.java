@@ -30,6 +30,8 @@ public class Constants {
 
     public static final String HOME_URI = "/home.html";
 
+    public static final String LOGOUT_URI = "/logout.html";
+
     public static final int DEFAULT_PORT = 8014;
 
     public static final String SSO_COOKIE = "SSOCookie";

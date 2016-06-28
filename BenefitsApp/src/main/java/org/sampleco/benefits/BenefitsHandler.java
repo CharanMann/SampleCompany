@@ -25,6 +25,8 @@ import org.glassfish.grizzly.http.server.Request;
 import org.glassfish.grizzly.http.server.Response;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 
 /**
  * Handler for HTTP requests.
@@ -51,7 +53,7 @@ public class BenefitsHandler extends HttpHandler {
                 }
 
                 if (Method.GET == request.getMethod()) {
-                    buildLoginPage(response);
+                    buildPage(response, Constants.LOGIN_URI);
                 }
 
                 if (Method.POST == request.getMethod()) {
@@ -94,6 +96,10 @@ public class BenefitsHandler extends HttpHandler {
                 }
                 break;
 
+            case Constants.LOGOUT_URI:
+                buildPage(response, Constants.LOGOUT_URI);
+                break;
+
             default:
                 // Redirect to Login page
                 redirectResponse(response, Constants.APP_CONTEXT + Constants.LOGIN_URI);
@@ -112,18 +118,19 @@ public class BenefitsHandler extends HttpHandler {
     }
 
     /**
-     * Builds Login page
+     * Builds Requested page
      *
+     * @param page
      * @param response
      * @throws IOException
      */
-    private void buildLoginPage(Response response) throws IOException {
-        String loginPage = CommonUtils.getResourceAsString(Constants.LOGIN_URI);
+    private void buildPage(Response response, String page) throws IOException {
+        String resource = CommonUtils.getResourceAsString(page);
 
         response.setContentType("text/html");
         response.setStatus(200, "OK");
-        response.setContentLength(loginPage.length());
-        response.getWriter().write(loginPage);
+        response.setContentLength(resource.length());
+        response.getWriter().write(resource);
     }
 
     /**
