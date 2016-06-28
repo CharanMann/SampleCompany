@@ -33,6 +33,9 @@ import java.util.Scanner;
  */
 public class CommonUtils {
 
+    /**
+     * Suppress constructor
+     */
     private CommonUtils() {
     }
 

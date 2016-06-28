@@ -33,7 +33,7 @@ public final class BenefitsServer {
     private static final Logger LOGGER = Logger.getLogger(BenefitsServer.class.getName());
 
     /**
-     * Not used.
+     * Suppress constructor
      */
     private BenefitsServer() {
     }

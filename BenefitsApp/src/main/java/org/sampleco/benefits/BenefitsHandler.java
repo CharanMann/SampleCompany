@@ -41,25 +41,17 @@ public class BenefitsHandler extends HttpHandler {
 
         String userID = CommonUtils.isUserAuthenticated(request);
 
-        if (CommonUtils.notNullOrEmpty(userID)) {
-            redirectToHome(request, response, userID);
-        }
-
         switch (requestURI) {
 
-            case "/":
-            case "":
-                returnError(403, "Forbidden", response);
-                break;
-
             case Constants.LOGIN_URI:
-                if (Method.GET == request.getMethod()) {
-                    String loginPage = CommonUtils.getResourceAsString(Constants.LOGIN_URI);
+                if (CommonUtils.notNullOrEmpty(userID)) {
+                    // Redirect to Home page
+                    redirectResponse(response, Constants.APP_CONTEXT + Constants.HOME_URI);
+                    break;
+                }
 
-                    response.setContentType("text/html");
-                    response.setStatus(200, "OK");
-                    response.setContentLength(loginPage.length());
-                    response.getWriter().write(loginPage);
+                if (Method.GET == request.getMethod()) {
+                    buildLoginPage(response);
                 }
 
                 if (Method.POST == request.getMethod()) {
@@ -76,7 +68,7 @@ public class BenefitsHandler extends HttpHandler {
                     }
 
                     if (username == null || password == null) {
-                        returnError(401, "Authentication Failed", response);
+                        buildError(401, "Authentication Failed", response);
                         return;
                     }
 
@@ -86,37 +78,89 @@ public class BenefitsHandler extends HttpHandler {
                         CommonUtils.setSSOCookie(username, request, response);
 
                         // Redirect to Home page
-                        //redirectToHome(request, response, username);
-
-                        response.setStatus(302);
-                        response.setHeader("Location", Constants.APP_CONTEXT + Constants.HOME_URI);
+                        redirectResponse(response, Constants.APP_CONTEXT + Constants.HOME_URI);
                     } else {
-                        returnError(401, "Authentication Failed", response);
+                        buildError(401, "Authentication Failed", response);
                     }
                 }
                 break;
 
             case Constants.HOME_URI:
-                response.setStatus(302);
-                response.setHeader("Location", Constants.APP_CONTEXT + Constants.LOGIN_URI);
+                if (CommonUtils.notNullOrEmpty(userID)) {
+                    buildHomePage(request, response, userID);
+                } else {
+                    // Redirect to Login page
+                    redirectResponse(response, Constants.APP_CONTEXT + Constants.LOGIN_URI);
+                }
                 break;
 
             default:
-                returnError(403, "Forbidden", response);
+                buildError(403, "Forbidden", response);
         }
     }
 
-    private void returnError(int errorCode, String errorMessage, Response response) throws IOException {
+    /**
+     * Redirect to specified page
+     *
+     * @param response
+     * @param redirectURL
+     */
+    private void redirectResponse(Response response, String redirectURL) {
+        response.setStatus(302);
+        response.setHeader("Location", redirectURL);
+    }
+
+    /**
+     * Builds Login page
+     *
+     * @param response
+     * @throws IOException
+     */
+    private void buildLoginPage(Response response) throws IOException {
+        String loginPage = CommonUtils.getResourceAsString(Constants.LOGIN_URI);
+
+        response.setContentType("text/html");
+        response.setStatus(200, "OK");
+        response.setContentLength(loginPage.length());
+        response.getWriter().write(loginPage);
+    }
+
+    /**
+     * Builds error message
+     *
+     * @param errorCode
+     * @param errorMessage
+     * @param response
+     * @throws IOException
+     */
+    private void buildError(int errorCode, String errorMessage, Response response) throws IOException {
         response.setStatus(errorCode, errorMessage);
         response.setContentLength(errorMessage.length() + Constants.EOL.length());
         response.getWriter().write(errorMessage + Constants.EOL);
     }
 
-    private void redirectToHome(Request request, Response response, String username) throws IOException {
+    /**
+     * Builds Home Page
+     *
+     * @param request
+     * @param response
+     * @param username
+     * @throws IOException
+     */
+    private void buildHomePage(Request request, Response response, String username) throws IOException {
         // Replace profile page placeholders and respond.
         final StringBuilder headers = new StringBuilder();
 
-        String homePage = CommonUtils.getResourceAsString("/home.html")
+        for (String name : request.getHeaderNames()) {
+            for (String header : request.getHeaders(name)) {
+                headers.append(name)
+                        .append(": ")
+                        .append(header)
+                        .append("<br>");
+            }
+        }
+
+        String homePage = CommonUtils.getResourceAsString(Constants.HOME_URI)
                 .replaceAll(Constants.EOL, "####")
                 .replaceAll("USERNAME", username)
                 .replace("METHOD", request.getMethod().getMethodString())

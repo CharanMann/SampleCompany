@@ -19,6 +19,9 @@
 
 package org.sampleco.benefits;
 
+/**
+ * Constants used for this project
+ */
 public class Constants {
 
     public static final String APP_CONTEXT = "/benefitsApp";
