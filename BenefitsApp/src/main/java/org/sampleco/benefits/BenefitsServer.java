@@ -71,10 +71,10 @@ public final class BenefitsServer {
         }
 
         try {
-            System.out.println("Starting server...");
             httpServer.start();
+            System.out.println("Benefits App (Direct Access) - server running @ http://benefits.sc.com:8014/benefitsApp/");
+            System.out.println("Benefits App (Via OpenIG) - server running @ http://benefits-ig.sc.com:9002/benefitsApp/");
             if (waitForCtrlC) {
-                System.out.println("Press Ctrl+C to stop the server.");
                 Thread.currentThread().join();
             }
         } catch (Exception e) {

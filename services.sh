@@ -16,46 +16,49 @@ install() {
 		/usr/bin/npm install &
 		echo "********************** SampleCompany-TravelApp installed ***********************"
 
-		cd /opt/forgerock/SampleCompany/BenefitsApp/
-		/usr/bin/npm install &
-		echo "********************** SampleCompany-BenefitsApp installed ***********************"
-
 		cd /opt/forgerock/SampleCompany/CustomerApp/
 		/usr/bin/npm install &
 		echo "********************** SampleCompany-CustomerApp installed ***********************"
+
+		cd /opt/forgerock/SampleCompany/BenefitsApp/
+		mvn clean install
+		echo "********************** SampleCompany-BenefitsApp installed ***********************"
 }
+
 # Start SampleCompany services
 start() {
 		cd /opt/forgerock/SampleCompany/CommonServices/
 		/usr/bin/npm install &
-		/usr/bin/node server.js &
+		/usr/bin/node commonServices.js &
 		echo "********************** SampleCompany-CommonServices started ***********************"
 
 		cd /opt/forgerock/SampleCompany/EmployeeApp/
 		/usr/bin/npm install &
-		/usr/bin/npm start &
+		/usr/bin/node employeeApp.js &
 		echo "********************** SampleCompany-EmployeeApp started ***********************"
 
 		cd /opt/forgerock/SampleCompany/TravelApp/
 		/usr/bin/npm install &
-		/usr/bin/npm start &
+		/usr/bin/node travelApp.js &
 		echo "********************** SampleCompany-TravelApp started ***********************"
-
-		cd /opt/forgerock/SampleCompany/BenefitsApp/
-		/usr/bin/npm install &
-		/usr/bin/npm start &
-		echo "********************** SampleCompany-BenefitsApp started ***********************"
 
 		cd /opt/forgerock/SampleCompany/CustomerApp/
 		/usr/bin/npm install &
-		/usr/bin/npm start &
+		/usr/bin/node customerApp.js &
 		echo "********************** SampleCompany-CustomerApp started ***********************"
+
+		cd /opt/forgerock/SampleCompany/BenefitsApp/target
+		java -jar BenefitsApp-1.0-jar-with-dependencies.jar &
+		echo "********************** SampleCompany-BenefitsApp started ***********************"
 }
+
 # Stop SampleCompany services
 stop() {
 		cd /opt/forgerock/SampleCompany
-    kill -9 $(ps -ef | grep 'server.js' | awk '{print $2}')
-    echo "********************** Sample Company apps stopped ***********************"
+		kill -9 $(ps -ef | grep 'Services.js' | awk '{print $2}')
+        kill -9 $(ps -ef | grep 'App.js' | awk '{print $2}')
+        kill -9 $(ps -ef | grep 'BenefitsApp' | awk '{print $2}')
+        echo "********************** Sample Company apps stopped ***********************"
 }
 
 ### services options ###
@@ -70,7 +73,9 @@ case "$1" in
         stop
         ;;
   status)
-				ps -ef|grep node
+        ps -ef|grep 'Services.js'
+		ps -ef|grep 'App.js'
+		ps -ef|grep BenefitsApp
         ;;
   restart)
         stop
