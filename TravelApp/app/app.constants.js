@@ -1,5 +1,5 @@
 angular.module('app.constants', [])
     .constant('appConstants', {
         openAMCookie: 'iPlanetDirectoryPro',
-        openAMURL: 'http://openam13.sc.com:8080/openam'
+        openAMURL: 'http://openam.example.com:18080/openam'
      });

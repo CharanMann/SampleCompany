@@ -56,7 +56,7 @@ public final class BenefitsServer {
     static HttpServer runServer(final int port, final boolean waitForCtrlC) {
 
         final HttpServer httpServer = new HttpServer();
-        httpServer.addListener(new NetworkListener("HTTP", "benefits.sc.com", port));
+        httpServer.addListener(new NetworkListener("HTTP", "benefits.example.net", port));
 
         httpServer.getServerConfiguration().addHttpHandler(new BenefitsHandler());
 
@@ -72,8 +72,8 @@ public final class BenefitsServer {
 
         try {
             httpServer.start();
-            System.out.println("Benefits App (Direct Access) - server running @ http://benefits.sc.com:8014/benefitsApp/");
-            System.out.println("Benefits App (Via OpenIG) - server running @ http://benefits-ig.sc.com:9002/benefitsApp/");
+            System.out.println("Benefits App (Direct Access) - server running @ http://benefits.example.net:8014/benefitsApp/");
+            System.out.println("Benefits App (Via OpenIG) - server running @ http://benefits-ig.example.net:9002/benefitsApp/");
             if (waitForCtrlC) {
                 Thread.currentThread().join();
             }
