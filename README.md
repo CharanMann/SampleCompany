@@ -30,14 +30,14 @@ $ npm -v <br />
 
 SampleCompany installation :
 ===========================
-1. Copy SampleCompany folder to /opt/forgerock/SampleCompany
+1. Copy SampleCompany folder to /opt/SampleCompany
 2. Install services:
-  * To install the services, execute /opt/forgerock/SampleCompany/services.sh install. Note that this is required only once; NPM downloads the required dependencies.
+  * To install the services, execute /opt/SampleCompany/services.sh install. Note that this is required only once; NPM downloads the required dependencies.
 3. Start/ Stop services:
-  * To start the services, execute /opt/forgerock/SampleCompany/services.sh start.
-  * To check the status of services, execute /opt/forgerock/SampleCompany/services.sh status
-  * To stop the services, execute /opt/forgerock/SampleCompany/services.sh stop
-  * To restart the services, execute /opt/forgerock/SampleCompany/services.sh restart
+  * To start the services, execute /opt/SampleCompany/services.sh start.
+  * To check the status of services, execute /opt/SampleCompany/services.sh status
+  * To stop the services, execute /opt/SampleCompany/services.sh stop
+  * To restart the services, execute /opt/SampleCompany/services.sh restart
 
 SampleCompany URLs :
 ===========================
