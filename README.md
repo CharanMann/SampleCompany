@@ -26,7 +26,7 @@ $ npm -v <br />
 [IP Address]  customers.example.com  # External Customer App, Port:8004 <br />
 [IP Address]  apis.example.net # API server, Port:8010 <br />
 [IP Address]  travel.example.net  # Internal Travel App, Port:8012 <br />
-[IP Address]  benefits.example.net # Internal Benefits App, Port:8014 <br />
+[IP Address]  benefits.example.com # Internal Benefits App, Port:8014 <br />
 
 SampleCompany installation :
 ===========================
@@ -45,7 +45,7 @@ SampleCompany URLs :
 2. EmployeeApp direct: http://employees.example.com:8002/employeeApp/#/
 3. CustomerApp direct: http://customers.example.com:8004/customerApp/#/
 4. TravelApp direct: http://travel.example.net:8012/travelApp/#/
-5. BenefitsApp direct: http://benefits.example.net:8014/benefitsApp/#/
+5. BenefitsApp direct: http://benefits.example.com:8014/benefitsApp/#/
 
 * * *
 
