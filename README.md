@@ -14,8 +14,9 @@ Pre-requisites :
 ================
 1. Create Linux Server/VM with 4 CPU, 8 GB RAM and 50 GB hard drive. Create user 'forgerock', this user shall be used for all operations in this guide.
 2. Install Java 1.7
-3. Install Maven, Refer http://www.mkyong.com/maven/how-to-install-maven-in-ubuntu/
-4. Install NPM and NodeJS. For Ubuntu refer these instructions (How To Install the Distro-Stable Version): https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server
+3. Install Maven, For Ubuntu refer: http://www.mkyong.com/maven/how-to-install-maven-in-ubuntu/ <br /> For CentOS refer: http://preilly.me/2013/05/10/how-to-install-maven-on-centos/
+4. Install NPM and NodeJS. For Ubuntu refer: https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server <br />
+For CentOS refer: http://tecadmin.net/install-latest-nodejs-and-npm-on-centos/#
 5. Verify that NPM and NodeJS has been installed successfully by running below commands: <br />
 $ node -v <br />
 v0.10.25 <br />
