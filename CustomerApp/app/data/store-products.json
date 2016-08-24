@@ -1,11 +1,8 @@
 [
   {
-    "name": "House of Cards",
-    "description": "A Congressman works with his equally conniving wife to exact revenge on the people who betrayed him.",
+    "name": "The Sixth Gear",
     "year": 2013,
-    "images": [
-      "assets/images/hoc.jpg"
-    ],
+    "director": "John Smith",
     "reviews": [
       {
         "stars": 5,
@@ -18,12 +15,9 @@
     ]
   },
   {
-    "name": "Game of Thrones",
-    "description": "While a civil war brews between several noble families in Westeros, the children of the former rulers of the land attempt to rise up to power. Meanwhile a forgotten race, bent on destruction, return after thousands of years in the North.",
+    "name": "Bounty Renovators",
     "year": 2011,
-    "images": [
-      "assets/images/got.jpg"
-    ],
+    "director": "John Smith",
     "reviews": [
       {
         "stars": 5,
@@ -40,12 +34,9 @@
     ]
   },
   {
-    "name": "Big Bang Theory",
-    "description": "A woman who moves into an apartment across the hall from two brilliant but socially awkward physicists shows them how little they know about life outside of the laboratory.",
+    "name": "Puppy Stories",
     "year": 2007,
-    "images": [
-      "assets/images/bigBangTheory.jpg"
-    ],
+    "director": "Tom Hunt",
     "reviews": [
       {
         "stars": 5,
@@ -58,21 +49,15 @@
     ]
   },
   {
-    "name": "Silicon Valley",
-    "description": "In the high-tech gold rush of modern Silicon Valley, the people most qualified to succeed are the least capable of handling success.",
+    "name": "BBQ Brother",
     "year": 2014,
-    "images": [
-      "assets/images/siliconValley.jpg"
-    ],
+    "director": "Neil brothers",
     "reviews": []
   },
   {
-    "name": "Breaking Bad",
-    "description": "A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine, with his former student, in order to secure his family's financial future.",
+    "name": "Error Adventure",
     "year": 2008,
-    "images": [
-      "assets/images/breakingBad.jpg"
-    ],
+    "director": "Joe Doe",
     "reviews": []
   }
 ]
