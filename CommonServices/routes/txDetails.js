@@ -29,6 +29,14 @@ var appRouter = function(server) {
                 res.end(user);
             }
         }
+
+        if (req.params.id == 'all') {
+            // If 'all' is specified, then return all users history; http://localhost:8010/history/all
+            res.setHeader('Content-Type', 'application/json; charset=utf-8');
+
+            res.end(JSON.stringify(users));
+        }
+
         res.end(null);
     });
 
